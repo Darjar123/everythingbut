@@ -1,0 +1,108 @@
+{% set display_style = node.field_single_page_layout.value %}
+{% set display_video_type = node.field_display_video_type.value %}
+
+{% set imageoneURL = file_url(node.field_image.entity.uri.value) %}
+{% set imguri = node.field_image.entity.uri.value %}
+{% set img_url = file_url(imguri) %}
+{% set image500x375 = getUrlByImageStyle(imguri, 'image500x375') %}
+{% set img_arr = node.field_image %}
+{% set length_image = node.field_image|length %}
+{% set img_alt = node.field_image.alt %}
+
+{% if not page %}
+	{% if portfolio_layout == 'masonry' %}
+		{% if portfolio_columns == 'columns_2' %}
+			<div class="masonry-item">
+		{% endif %}
+		<a href="{{ url }}">
+			<div class="{% if portfolio_hover == 'hover_style1' %}project-classic {% elseif portfolio_hover == 'hover_style2' %}project-classic-2{% else %}project-classic-3{% endif %}">
+				<img src="{{ img_url }}" alt="{{ img_alt }}">
+				<div class="project-classic-overlay">
+					<div class="project-classic-content">
+						<div class="project-classic-content-inner">
+							<h3>{{ node.getTitle() }}</h3>
+							<h4>{{ content.field_portfolio_category }}</h4>
+						</div>
+					</div>
+				</div>					
+			</div>				
+		</a>
+		{% if portfolio_columns == 'columns_2' %}
+			</div>
+		{% endif %}
+	{% else %}
+		<div class="gallery-item mt-0 mb-0">
+			<a href="{{ url }}">
+				<div class="{% if portfolio_hover == 'hover_style1' %}project-classic {% elseif portfolio_hover == 'hover_style2' %}project-classic-2{% else %}project-classic-3{% endif %}">
+					<img src="{{ image500x375 }}" alt="{{ node.getTitle() }}">
+					<div class="project-classic-overlay">
+						<div class="project-classic-content">
+							<div class="project-classic-content-inner">
+								<h3>{{ node.getTitle() }}</h3>
+								<h4>{{ content.field_portfolio_category }}</h4>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</a>						
+		</div>
+	{% endif %}
+
+{% else %}	        
+	<!-- Project Single Section START -->
+	<div class="section-block">
+		<div class="container">	
+			<div class="project-single">
+				<div class="project-single-img">
+					{% if length_image > 1 %}
+						<div class="owl-carousel owl-theme customizable-carousel" data-loop="true" data-items="2"  data-md-items="2" data-sm-items="2" data-xs-items="1" data-space="15" data-autoplay="true" data-autospeed="3500" data-nav-dots="false" data-nav-arrows="true">
+							{% for img_item in img_arr %}
+			                  	{% set img_uri = img_item.entity.uri.value %}
+			                  	{% set img_url = file_url(img_uri) %}
+			                  	{% set image500x375 = getUrlByImageStyle(img_uri, 'image500x375')  %}
+			                  	<div class="item">
+			                      	<img src="{{ image500x375 }}" alt="{{ img_item.alt }}"/>
+			                    </div>
+			                {% endfor %}
+						</div>
+					{% else %}
+						<img src="{{ img_url }}" alt="{{ img_alt }}">
+						
+					{% endif %}	
+				</div>
+
+				<div class="row">
+					<div class="col-md-8 col-sm-8 col-12">
+						<!-- Left Side Start -->
+						<div class="project-single-text pr-30-md">
+							<h4>{{ content.body['#title'] }}</h4>
+							{{ content|without('field_client_','field_date_','field_image','field_image','field_portfolio_category','link','field_project_advantages','field_status_','field_website_') }}
+
+							<h4 class="mt-30">{{ content.field_project_advantages['#title'] }}</h4>
+							{{ content.field_project_advantages }}
+						</div>
+						<!-- Left Side End -->
+					</div>
+					<!-- Right Side Start -->
+					<div class="col-md-4 col-sm-4 col-12">
+						<h4>{{ 'Project Information'|t }}</h4>
+						<div class="project-single-info">
+							<ul>
+								{% if content.field_portfolio_category %}<li><span>Category :</span> Finance</li>{% endif %}
+								{% if content.field_status_ %}<li><span>{{ content.field_status_['#title'] }}</span> {{ content.field_status_ }}</li>{% endif %}
+								{% if content.field_client_ %}<li><span>{{ content.field_client_['#title'] }}</span> {{ content.field_client_ }}</li>{% endif %}
+								{% if content.field_date_ %}<li><span>{{ content.field_date_['#title'] }}</span> {{ content.field_date_ }}</li>{% endif %}
+								{% if content.field_website_ %}<li><span>{{ content.field_website_['#title'] }}</span> {{ content.field_website_ }}</li>{% endif %}
+							</ul>
+						</div>
+					</div>
+					<!-- Right Side End -->				
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!-- Project Single Section END -->
+
+
+{% endif %}

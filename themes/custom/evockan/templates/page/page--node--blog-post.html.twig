@@ -1,0 +1,47 @@
+
+  {% set blog_sidebar = blog_single_sidebar %}
+
+  {% include "@evockan/header.html.twig" %}
+  
+  {% set field_breadcrumb_image = field_blog_breadcrumb_image %}
+
+  {% include "@evockan/page/page-title.html.twig" %}
+  <div class="section-block">
+    <div class="container">
+      <div class="row">
+        
+        {% if blog_sidebar == 'right' %}
+          <!-- Left Side START -->
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            {{ page.content }}
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class="blog-post-right">
+              {{ page.sidebar }}
+            </div>
+          </div>
+        {% elseif blog_sidebar == 'left' %}
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class="blog-post-right">
+              {{ page.sidebar }}
+            </div>
+          </div>
+          <!-- Left Side START -->
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            {{ page.content }}
+          </div>
+             
+        {% else %}
+            <div class="col-md-10 col-sm-12 col-xs-12 offset-md-1">
+              {{ page.content }}
+            </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+    
+  {% if page.section %}
+      {{ page.section }}
+  {% endif %}
+
+{% include "@evockan/footer.html.twig" %}

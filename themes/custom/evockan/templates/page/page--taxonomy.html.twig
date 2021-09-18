@@ -1,0 +1,92 @@
+
+{% include "@evockan/header.html.twig" %}
+
+
+{% if v_name == 'blog_categories' or v_name == 'tags'%}
+	{% set field_breadcrumb_image = field_blog_breadcrumb_image %}
+  	{% include "@evockan/page/page-title.html.twig" %}
+  	
+	  <div class="section-block">
+	    <div class="container">
+	      
+	        {% if blog_layout == 'classic_2_columns' or blog_layout == 'simple_2_columns' %}
+	            <div class="col-md-10 col-sm-12 col-12 offset-md-1">
+	              <div class="row mt--15">
+	                {{ page.content }}
+	              </div>
+	            </div>
+	        {% elseif blog_layout == 'list_center' %}
+	            <div class="col-md-10 col-sm-12 col-xs-12 offset-md-1">
+	              {{ page.content }}
+	            </div>
+	        {% elseif blog_layout == 'list_right' %}
+	        	<div class="row">
+		          <!-- Left Side START -->
+		          <div class="col-md-9 col-sm-9 col-xs-12">
+		            {{ page.content }}
+		          </div>
+		          <div class="col-md-3 col-sm-3 col-xs-12">
+		            <div class="blog-post-right">
+		              {{ page.sidebar }}
+		            </div>
+		          </div>
+		      </div>
+	        {% elseif blog_layout == 'list_left' %}
+	        	<div class="row">
+		          <div class="col-md-3 col-sm-3 col-xs-12">
+		            <div class="blog-post-right">
+		              {{ page.sidebar }}
+		            </div>
+		          </div>
+		          <!-- Left Side START -->
+		          <div class="col-md-9 col-sm-9 col-xs-12">
+		            {{ page.content }}
+		          </div>
+	            </div>
+	        {% else %}
+	          {{ page.content }}
+	        {% endif %}
+	      
+	    </div>
+	  </div>
+{% elseif v_name == 'product_categories' or v_name == 'product_tags' %}
+	{% set field_breadcrumb_image = field_shop_breadcrumb_image %}
+	{% include "@evockan/page/page-title.html.twig" %}
+
+	<div class="section-block">
+		<div class="container">
+		
+			{% if shop_layout == 'classic_2_columns' or  shop_layout == 'simple_2_columns' or shop_layout == 'styled_2_columns'%}
+			<div class="row">
+				<div class="col-md-10 col-sm-12 col-12 offset-md-1">
+					{% if v_name == 'product_categories' %}
+		    			{{ drupal_view('shop', 'embed_categories_list') }}
+		    		{% else %}
+		    			{{ drupal_view('shop', 'embed_tags_list') }}
+		    		{% endif %}
+	    		
+	    		</div>
+	    	</div>
+	    	{% else %}
+	    		{% if v_name == 'product_categories' %}
+	    			{{ drupal_view('shop', 'embed_categories_list') }}
+	    		{% else %}
+	    			{{ drupal_view('shop', 'embed_tags_list') }}
+	    		{% endif %}
+	    	{% endif %}
+	    	
+	    </div>
+	</div>
+{% else %}
+	{% include "@evockan/page/page-title.html.twig" %}
+    <div class="container">
+      {% if page.content %}
+          {{ page.content }}
+      {% endif %}
+ 		</div>
+{% endif %}
+
+{{ page.section }}
+
+{% include "@evockan/footer.html.twig" %}
+        

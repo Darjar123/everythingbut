@@ -1,0 +1,99 @@
+{% set footer = footer_layout %} 
+{% if footer == 'classic_light' %}
+    <!-- Footer START -->
+    <footer class="footer-style-1-light">
+         <div class="container">
+              <div class="row">
+                {{ page.footer }}                                                
+              </div>
+         </div>
+
+         <div class="footer-style-1-bar">
+              <div class="container">
+                   <div class="row">
+                        {{ page.footer_bottom }}
+                   </div>
+              </div>
+         </div>
+    </footer>
+    <!-- Footer END -->
+{% elseif footer == 'modern' %}  
+
+    <!-- Footer START -->
+    <footer class="footer-style-3 background-center black-overlay-20" style="background-image: url({{ field_footer_background_image }});">
+         <div class="container">
+              <div class="row">
+                   {{ page.footer }}                                      
+              </div>
+         </div>
+
+         <div class="footer-style-3-bar">
+              <div class="container">
+                   <div class="row">
+                        {{ page.footer_bottom }}
+                   </div>
+              </div>
+         </div>
+    </footer>
+    <!-- Footer END -->
+{% elseif footer == 'minimal' %}   
+    <!-- Footer START -->
+    <footer class="footer-style-2">
+         <div class="container">
+              <div class="row">
+                   <div class="col-md-10 col-sm-12 offset-md-1">
+                            {{ page.footer_minimal }}   
+                   </div>                                                 
+              </div>
+         </div>
+    </footer>
+    <!-- Footer END -->
+{% elseif footer == 'simple' %}   
+    <!-- Footer START -->
+    <footer class="footer-style-4">
+         <div class="container">
+              <div class="row">
+                   {{ page.footer }}                      
+              </div>
+              <div class="footer-4-bottom-bar">
+                <div class="row">
+                    {{ page.footer_bottom }}  
+                  </div>
+            </div>
+                  
+         </div>    
+    </footer>
+    <!-- Footer END -->
+{% else %}
+
+    <!-- Footer START -->
+    <footer class="footer-style-1">
+         <div class="container">
+              <div class="row">
+                   {{ page.footer }}                                                
+              </div>
+         </div>
+
+         <div class="footer-style-1-bar">
+              <div class="container">
+                   <div class="row">
+                        {{ page.footer_bottom }} 
+                   </div>
+              </div>
+         </div>
+    </footer>
+    <!-- Footer END -->
+
+{% endif %}
+
+<!-- Scroll to top button Start -->
+<a href="#" class="scroll-to-top"><i class="fas fa-chevron-up"></i></a>    
+<!-- Scroll to top button End -->
+
+{% if switcher_enable == 'on' %}
+     {% include "@evockan/switcher.html.twig" %}
+{% endif %}
+
+{% if header_layout == 'left_side_navigation' %}
+</div>
+{% endif %}

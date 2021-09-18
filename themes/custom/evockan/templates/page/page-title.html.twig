@@ -1,0 +1,50 @@
+
+{% if page_title_layout == 'center' %}
+  <div class="page-title-2 center-holder">
+    <div class="container">
+      <h1>{{ title }}</h1>
+      {{ page.breadcrumb }}
+    </div>
+  </div>  
+{% elseif page_title_layout == 'right' %}
+  <div class="page-title-2 right-holder">
+    <div class="container">
+      <h1>{{ title }}</h1>
+        {{ page.breadcrumb }}
+    </div>
+  </div>  
+{% elseif page_title_layout == 'dark' %}
+  <div class="page-title-dark left-holder">
+    <div class="container">
+      <h1>{{ title }}</h1>
+      {{ page.breadcrumb }}
+    </div>
+  </div>
+{% elseif page_title_layout == 'primary' %}
+  <div class="page-title-primary left-holder">
+    <div class="container">
+      <h1>{{ title }}</h1>
+      {{ page.breadcrumb }}
+    </div>
+  </div>
+{% elseif page_title_layout == 'parallax' %}
+<div class="page-title jarallax black-overlay-20" data-jarallax data-speed="0.6" style="background-image: url('{{ field_breadcrumb_image }}');">
+  <div class="container">
+    <h1>{{ title }}</h1>
+    {{ page.breadcrumb }}
+  </div>
+</div>  
+{% elseif page_title_layout == 'video' and header_video_url != '' %}
+<div class="video-section">
+  <div class="video-area" id="video-area">
+    <div class="player" id="video-play" data-property="{videoURL:'{{ header_video_url }}', containment:'#video-area', showControls:false, autoPlay:true, zoom:0, loop:true, mute:true, startAt:0, opacity:1, quality:'low',}"></div>
+    <div class="page-title-video center-holder black-overlay-40">
+      <h1>{{ title }}</h1>
+      {{ page.breadcrumb }}
+    </div>    
+  </div>
+</div>
+
+{% else %}
+
+{% endif %}

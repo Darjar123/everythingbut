@@ -1,0 +1,26 @@
+<div{{ attributes }}>
+  {{ title_prefix }}
+  
+  {{ title_suffix }}
+	<div class="container">		
+		<div class="row">
+			<!-- Accordions Column Start -->
+      {{ content.body }}
+			<!-- Accordions Column End -->
+
+			<!-- Contact Form Column Start -->
+			<div class="col-md-5 col-sm-6 col-12">
+				<div class="pl-45-md">
+					<div class="section-heading left-holder">
+						<h4 class="bold">{{ label }}</h4>
+						<div class="section-heading-line"></div>				
+					</div>				
+					<div class="contact-form-md white-background no-padding pl-30-md">
+						{{ content.field_webform }}
+					</div>
+				</div>
+			</div>	
+			<!-- Contact Form Column End -->	
+		</div>
+	</div>
+</div>

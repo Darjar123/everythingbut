@@ -1,0 +1,88 @@
+
+{% set uri_img =  content['#block_content'].field_bg_image.entity.uri.value %}
+{% if uri_img %}
+  {% set img_url = "background-image: url(" ~  file_url(uri_img) ~ ");"  %}
+{% endif %}
+
+
+{% if region == 'section' %}
+  <div{{ attributes }} data-speed="0.6" style="{{ img_url }}">
+    {{ title_prefix }}
+    {% if label %}
+      <div class="container evockan-title-section">
+          <!-- Headline -->
+         <div class="sixteen columns main-headline">
+            <h3>{{ label }}</h3>
+            {% if sub_title %}
+            <p>{{ sub_title }}</p>
+          {% endif %}
+        </div>
+        <hr class="sep10">
+      </div>
+      {% endif %}
+    {{ title_suffix }}
+    {% if content %}
+      {{ content }}
+    {% endif %}
+  </div>
+{% elseif region == 'slider' %}
+  <div{{ attributes }} style="{{ img_url }}">
+ {#    {{ title_prefix }} #}
+    {% if label %}
+      <div class="container evockan-title-section">
+          <!-- Headline -->
+         <div class="sixteen columns main-headline">
+            <h3>{{ label }}</h3>
+            {% if sub_title %}
+            <p>{{ sub_title }}</p>
+          {% endif %}
+        </div>
+        <hr class="sep10">
+      </div>
+      {% endif %}
+    {{ title_suffix }}
+    {% if content %}
+      {{ content }}
+    {% endif %}
+  </div>
+{% elseif region == 'sidebar' %}
+    <div{{ attributes }}>
+      {{ title_prefix }}
+      {% if label %}
+        <h4>{{ label }}</h4>
+      {% endif %}
+      {{ title_suffix }}
+      {% if content %}
+        {{ content }}
+      {% endif %}
+    </div>
+{% elseif region == 'footer' %}
+  <div{{ attributes }}>
+      {{ title_prefix }}
+      {% if label %}
+        <h3>{{ label }}</h3>
+      {% endif %}
+      {{ title_suffix }}
+      {% if content %}
+        {{ content }}
+      {% endif %}
+    </div>
+{% elseif region == 'content' %}
+      {% if label %}
+        <h3>{{ label }}</h3>
+      {% endif %}
+      {% if content %}
+        {{ content }}
+      {% endif %}
+{% else %}
+  <div{{ attributes }}>
+    {{ title_prefix }}
+    {% if label %}
+      <h3>{{ label }}</h3>
+    {% endif %}
+    {{ title_suffix }}
+    {% if content %}
+      {{ content }}
+    {% endif %}
+  </div>
+{% endif %}

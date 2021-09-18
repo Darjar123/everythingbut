@@ -1,0 +1,38 @@
+<?php
+/**
+ * @file
+ * Allows for camera based barcode scanning.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+
+/**
+ * Implements hook_form_FORM_ID_alter() for form changing.
+ */
+function add_simple_products_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+   if ($form_id == 'add_simple_products') {
+    $form['#attached']['library'][] = 'add_simple_products/quagga';
+    $form['#attached']['library'][] = 'add_simple_products/form';
+
+    if (!file_exists('libraries/quagga/quagga.min.js')) {
+      $messenger = \Drupal::messenger();
+      $messenger->addWarning(t('You don\'t have the quagga library, so barcode scanning won\'t work. <a href="@help_link">Learn More</a>', [
+        '@help_link' => '/admin/help/commerce_pos_barcode_scanning',
+      ]));
+    }
+
+    $config = \Drupal::configFactory()->getEditable('commerce_pos_barcode_scanning.settings');
+
+    $form['#attached']['drupalSettings']['commerce_pos_barcode_scanning'] = [
+      'statusOnLoad' => $config->get('status_on_load'),
+      'closeAfterScanning' => $config->get('close_after_scanning'),
+      'delay' => $config->get('delay'),
+    ];
+
+    $form['#prefix'] =
+      '<span id="scanner-toggle"></span>';
+  }
+}

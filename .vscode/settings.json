@@ -1,0 +1,12 @@
+{
+    "liveSassCompile.settings.includeItems": [
+		"themes/custom/etbd/etbd/scss/style.scss"
+	],
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "/themes/custom/etbd/etbd/css"
+        }
+    ],
+}

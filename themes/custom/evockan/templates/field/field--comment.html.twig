@@ -1,0 +1,21 @@
+{% set count_comments = comments|length - 3 %}
+{% if count_comments < 0 %}
+  {% set count_comments = 0 %}
+{% endif %}
+  
+
+<!-- Comments Start -->
+<div class="blog-comments">
+	{% if count_comments != 0 %}
+	  <h3>{{ 'All Comments:'|t }}</h3>
+	  {{ comments }}
+	{% endif %}
+  {% if comment_form %}
+	  	<h3 class="mt-30">{{ 'Your Comment:'|t }}</h3>
+	  	<div class="primary-form mt-20">
+	  		{{ comment_form }}
+	  	</div>
+	   	
+	{% endif %}
+</div>
+<!-- Comments End -->

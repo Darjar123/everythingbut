@@ -1,0 +1,100 @@
+{% set layout_style =  content['#block_content'].field_layout_style.value %}
+{% if layout_style == 'simple' %}
+	<!-- Contact Section START -->
+	<div{{ attributes.addClass('section-block') }}>
+	    {{ title_suffix }}
+		<div class="container">	
+			<div class="row">
+				{% if  content.body  %}
+				<div class="col-md-4 col-sm-12 col-12">
+					{{ content.body  }}
+				</div>
+				{% endif %}
+				<div class="{% if  content.body  %}col-md-8 {% else %}col-md-12 {% endif %} col-sm-12 col-12">
+					<div class="contact-box-4">
+						{% if label %}
+							<div class="section-heading left-holder mt-15">
+								<h5 class="bold">{{ label }}</h5>
+								<div class="section-heading-line"></div>
+							</div>
+						{% endif %}
+						<div class="primary-form mt-20">
+						{{ content.field_webform }}</div>
+						
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+	<!-- Contact Section END -->
+
+	<!-- Map START -->
+	<div id="map" class="map-1">
+		
+	</div>
+	<!-- Map START -->
+
+
+{% elseif layout_style == 'modern' %}
+	<div{{ attributes.addClass('section-block pt-0 pb-0') }}>
+	    {{ title_suffix }}
+		<div class="container-fluid">
+			<div class="row no-gutters">
+				<div class="col-md-6 col-sm-6 col-12">
+					<div class="contact-1-box padding-10-perc">
+						{% if label %}
+							<div class="section-heading left-holder">
+								<h5 class="bold mt-0">{{ label }}</h5>
+							</div>
+						{% endif %}
+						<div class="mt-30">
+							<div class="bordered-form">
+								{{ content.field_webform }}
+							</div>
+						</div>
+
+						{{ content.body }}
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-6 col-12">
+					<!-- Map START -->
+					<div id="map" class="full-height">
+							
+					</div>
+					<!-- Map START -->
+				</div>
+			</div>
+		</div>
+	</div>			
+{% else %}
+	<div{{ attributes }}>
+	    {{ title_suffix }}
+		<!-- Form Section START -->
+		<div class="section-block-grey">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10 col-sm-12 col-12 offset-md-1">
+						{% if label %}
+							<div class="section-heading center-holder">
+								<h4 class="bold">{{ label }}</h4>
+								<div class="section-heading-line mt-5"></div>
+							</div>
+						{% endif %}
+						<!-- Form Start -->
+
+						<div class="white-form mt-60">{{ content.field_webform }}</div>
+									
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Form Section END -->
+
+		<!-- Map START -->
+		<div id="map" class="map-1">
+			
+		</div>
+		<!-- Map START -->
+
+	</div>
+{% endif %}

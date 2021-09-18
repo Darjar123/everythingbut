@@ -1,0 +1,38 @@
+{% set count_comments = comments|length - 3 %}
+{% if count_comments < 0 %}
+  {% set count_comments = 0 %}
+{% endif %}
+  
+{% if count_comments != 0 %}
+	<!-- Comments -->
+	<div class="twelve alt columns">
+	  
+	  <span class="brd-headling"></span>
+	  <div class="clearfix"></div>
+	  <section class="comments-sec">
+	    <div class="commentlist">
+	    	<div class="review-input">
+	    		{{ comments }}
+	    	</div>
+	    </div>
+	  </section>
+	  <div class="clearfix"></div>
+	</div>
+{% endif %}
+
+
+  {% if comment_form %}
+	  	<div class="row mt-60">
+			<div class="col-md-2 col-12">
+				<h3>{{'Your Review'|t }}</h3>
+			</div>								
+			<div class="col-md-10 col-12 mt-5">
+				<div class="review-input">
+			  		{{ comment_form }}
+			  	</div>
+		  	</div>
+	  	</div>
+	   	
+	{% endif %}
+
+<!-- Comments End -->

@@ -1,0 +1,27 @@
+
+{% set length_image = node.field_image|length  %}
+{% set img_arr = node.field_image %}
+
+
+
+{% for img_item in img_arr %}
+    {% set img_uri = img_item.entity.uri.value %}
+    {% set img_url = file_url(img_uri) %}
+    {% set image1000x990 = getUrlByImageStyle(img_uri, 'image1000x990')  %}
+    {% set img_title = img_item.title %}
+    {% set img_alt = img_item.alt %}
+    <div class="gallery-item">
+		<img src="{{ image1000x990 }}" title="{{ img_title }}" alt="{{ img_alt }}">
+		<div class="gallery-overlay">
+			<div class="gallery-content">
+				<div class="gallery-content-inner">
+					<a class="image-popup-gallery" href="{{ image1000x990 }}">
+						<i class="ti-zoom-in"></i>
+					</a>
+				
+				</div>
+			</div>
+		</div>	
+	</div>	
+{% endfor %}
+

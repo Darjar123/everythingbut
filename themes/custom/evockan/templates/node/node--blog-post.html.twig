@@ -1,0 +1,170 @@
+{% if node.getRevisionAuthor().field_full_name.value %}
+    {% set full_name = node.getRevisionAuthor().field_full_name.value %}
+{% endif %}
+{% if full_name is null %}
+  {% set full_name =  author_name %}
+{% endif %}
+
+{% set img_uri = node.field_image.entity.uri.value %}
+{% set img_url = file_url(img_uri) %}
+{% set img_alt = node.field_image.alt %}
+{% set length_image = node.field_image|length  %}
+{% set img_arr = node.field_image %}
+{% set comment_count =  node.field_blog_comments.comment_count %}
+
+{% set post_format = node.field_post_format.value %}
+
+
+{% set image500x350 = getUrlByImageStyle(img_uri, 'image500x350')  %}
+{% set image900x456 = getUrlByImageStyle(img_uri, 'image900x456')  %}
+
+{% if not page %}
+  {% if blog_layout == 'classic_2_columns' or blog_layout == 'classic_3_columns' or blog_layout == 'classic_4_columns' %}
+    {% if blog_layout == 'classic_2_columns' %}
+      <div{{ attributes.addClass('col-md-6 col-sm-6 col-12') }}>
+      {{ title_suffix }}
+    {% elseif blog_layout == 'classic_3_columns' or blog_layout == 'classic_3_columns' %}
+      <div{{ attributes.addClass('col-md-4 col-sm-6 col-12 wow fadeIn animated') }} data-wow-delay=".1s"  data-wow-duration="1.5s">
+      {{ title_suffix }}
+    {% else %}
+      <div{{ attributes.addClass('col-md-3 col-sm-6 col-12 wow fadeIn animated') }} data-wow-delay=".15s">
+      {{ title_suffix }}
+    {% endif %}
+      {% if blog_layout == 'classic_4_columns' %}
+          <div class="blog-grid-3">
+            <div class="blog-grid-3-img">
+                <img src="{{ image500x350 }}" alt="{{ img_alt }}">
+            </div>
+            <div class="blog-grid-3-text">
+                <h4>{{ node.title.value }}</h4>
+                <ul>
+                  <li><i class="fa fa-calendar"></i>{{ node.created.value|date('M d, Y') }}</li>
+                  <li><i class="fas fa-user"></i>{{ 'By'|t }} {{ full_name }}</li>
+                  </ul>
+                <p>{% if node.body.summary %}{{ node.body.summary|length > 100 ? node.body.summary|slice(0,100) ~ '...' : node.body.summary }}{% endif %}</p>
+                <div class="blog-grid-3-button left-holder">
+                    <a href="{{ url  }}">{{ 'Read Article'|t }} <i class="fa fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+      </div>
+      {% else %}
+        <div class="blog-grid-2">
+          <div class="blog-grid-img">
+            <img src="{{ image500x350 }}" alt="{{ img_alt }}">
+          </div>
+          <div class="blog-grid-text">
+            <h4>{{ node.title.value }}</h4>
+              <ul>
+                <li><i class="fa fa-calendar"></i>{{ node.created.value|date('F d, Y') }}</li>
+                <li><i class="fas fa-comments"></i>{{ comment_count != 1 ? 'Comments' : 'Comment' }} ({{ comment_count }})</li>
+              </ul>
+            
+            <p>{% if node.body.summary %}{{ node.body.summary|length > 120 ? node.body.summary|slice(0,120) ~ '...' : node.body.summary }}{% endif %}</p>
+            <div class="blog-grid-2-button left-holder">
+              <a href="{{ url }}">{{'Continue Reading'|t}} <i class="fa fa-chevron-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% elseif blog_layout == 'simple_2_columns' or blog_layout == 'simple_3_columns' %}
+    {% if blog_layout == 'simple_2_columns' %}
+      <div{{ attributes.addClass('col-md-6 col-sm-6 col-12') }}>
+      {{ title_suffix }}
+    {% else %}
+      <div{{ attributes.addClass('col-md-4 col-sm-6 col-12') }}>
+      {{ title_suffix }}
+    {% endif %}
+    
+      <div class="blog-grid-simple">
+        <h4><a href="{{ ur }}">{{ node.title.value }}</a></h4>
+        <p>{% if node.body.summary %}{{ node.body.summary|length > 120 ? node.body.summary|slice(0,120) ~ '...' : node.body.summary }}{% endif %}</p>
+        <div class="blog-grid-simple-content">
+          <div class="blog-grid-simple-date">
+            <div class="row">
+              <div class="col-md-2 col-sm-2 col-2 pr-0">
+                <i class="fa fa-calendar"></i>
+              </div>
+              <div class="col-md-5 col-sm-5 col-5 pl-0">
+                <h5>{{ node.created.value|date('F d, Y') }}</h5>
+              </div>
+              <div class="col-md-5 col-sm-5 col-5 right-holder">
+                <a href="{{ url }}">{{ 'Read Article'|t }}</a>
+              </div>                
+            </div>  
+          </div>
+        </div>
+      </div>            
+    </div>    
+  {% else %}
+    <div{{ attributes.addClass('blog-list') }}>
+      {{ title_suffix }}
+      <img src="{{ image900x456 }}" alt="{{ img_alt }}">
+      <h4><a href="{{ url }}">{{ node.title.value }}</a></h4>
+
+      <ul class="blog-list-info">
+        <li><i class="far fa-user"></i><span>{{ full_name }}</span></li>
+        <li><i class="far fa-calendar-alt"></i><span>{{ node.created.value|date('F d, Y') }}</span></li>
+      </ul>
+
+      <p class="mt-25">
+        {% if node.body.summary %}{{ node.body.summary|length > 500 ? node.body.summary|slice(0,500) ~ '...' : node.body.summary }}{% endif %}
+        </p>
+
+      <div class="mt-20">
+         <a href="{{ url }}" class="button-md primary-button">{{ 'Read More'|t }}</a>
+      </div>
+    </div>    
+  {% endif %}
+
+
+{% else %}{# single #}<!-- blog post full -->
+
+<div class="blog-post">
+
+  {% if content.field_video_embed is not empty and node.field_video_embed.value is not empty and node.field_llow_video_type.value %}
+    <div class="video-video-box full-width mb-20">
+      <img src="{{ image900x456 }}" alt="{{ img_alt }}" class="rounded-border">
+      <div class="video-video-box-overlay">
+        <div class="video-video-box-button-sm">         
+          <button class="video-video-play-icon" data-izimodal-open="#video1">
+            <i class="fa fa-play"></i>
+          </button>
+        </div>          
+      </div>        
+    </div>
+    <!-- Modal Start -->
+    <div class="izimodal" id="video1" data-iziModal-width="800px" data-iziModal-fullscreen="true">
+       {{ content.field_video_embed }}
+    </div>    
+    <!-- Modal End -->  
+  {% elseif length_image > 1 %}
+      <div class="owl-carousel owl-theme customizable-carousel mb-20" data-loop="true" data-items="1"  data-md-items="1" data-sm-items="1" data-xs-items="1" data-space="15" data-autoplay="true" data-autospeed="4000" data-nav-dots="false" data-nav-arrows="true">
+        {% for img_item in img_arr %}
+            {% set img_uri = img_item.entity.uri.value %}
+            {% set img_url = file_url(img_uri) %}
+            {% set image900x456 = getUrlByImageStyle(img_uri, 'image900x456')  %}
+            <div class="item">
+                <img src="{{ image900x456 }}" alt="{{ img_item.alt }}"/>
+            </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <img src="{{ image900x456 }}" alt="{{ img_alt }}">
+      
+    {% endif %} 
+
+
+  <h4><a href="{{ url }}">{{ title }}</a></h4>
+  <ul class="blog-post-info">
+    <li><i class="far fa-user"></i><span>{{ full_name }}</span></li>
+    <li><i class="far fa-calendar-alt"></i><span>{{ node.created.value|date('F d, Y') }}</span></li>
+  </ul>
+ 
+   {{ content|without('field_blog_category','field_blog_comments','field_blog_tags','field_image','field_breadcrumb_image','link','field_video_embed') }}           
+</div>      
+
+  
+  {{ content.field_blog_comments }}
+{% endif %}

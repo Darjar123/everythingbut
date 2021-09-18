@@ -1,0 +1,27 @@
+#sugesstion-overlay{
+    position: absolute;
+     background-color: black;
+     opacity: 0.5;
+     top: 0px;
+     bottom: 0px;
+     right: 0px;
+}
+
+#suggestion{
+     color:#fff;
+}
+
+#suggestion .items{
+    padding: 10px;
+    border: 1px solid #cecece;
+    cursor: pointer;
+}
+
+#add-simple-products{
+    position: relative;
+}
+
+#sugesstion-overlay h2{
+     padding-left: 10px;
+     color: #fff;
+}

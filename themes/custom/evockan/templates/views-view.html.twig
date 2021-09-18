@@ -1,0 +1,305 @@
+{% if id == 'blog' %}
+  {% if display_id == 'block_blog_home' %}
+    <div class="container">
+      
+      <div class="sixteen columns">
+        <!-- Filters -->
+        <div id="filters" class="filters-dropdown">
+          {{ header }}
+        </div>
+      </div>
+    </div>
+     <!-- Container -->
+     <div class="container">
+      <!-- Portfolio Wrapper-->
+      <div id="portfolio-wrapper">
+        {{ rows }}
+      </div>
+    </div>
+  {% else %}
+    {{ exposed }}
+        
+    <div{{ attributes }}>
+        {{ title_prefix }}
+        {{ title }}
+        {{ title_suffix }}
+        
+        {{ header }}
+        {{ attachment_before }}
+            {% if rows and blog_layout != 'list_right' and blog_layout != 'list_left'%} 
+              <div class="row"> 
+                  {{ rows }}
+              </div>
+            {% else %}
+              {{ rows }}
+            {% endif %}
+        {{ footer }}
+        {{ pager }}
+        {{ attachment_after }}
+        {{ more }}
+
+        {{ feed_icons }}
+    </div>
+  {% endif %}
+{% elseif id == 'portfolio' %}
+  {% if portfolio_columns == 'columns_2' and portfolio_layout == 'masonry' %}
+    {% set class_por = 'masonry-2col' %}
+  {% elseif portfolio_columns == 'columns_3' and portfolio_layout == 'masonry' %}
+    {% set class_por = 'masonry-grid masonry-3col' %}
+  {% elseif portfolio_columns == 'columns_4' and portfolio_layout == 'masonry' %}
+    {% set class_por = 'masonry-grid masonry-4col' %}
+  {% elseif portfolio_columns == 'columns_2' and portfolio_layout == 'grid' %}
+    {% set class_por = 'grid-gallery-2col clearfix' %}
+  {% elseif portfolio_columns == 'columns_3' and portfolio_layout == 'grid' %}
+    {% set class_por = 'grid-gallery-3col clearfix' %}
+  {% else %}
+    {% set class_por = 'grid-gallery-4col clearfix' %}
+  {% endif %}
+  <div{{ attributes }}>
+      {{ header }}
+    <div class="{{ class_por }}">
+      {{ rows }}
+    </div>
+    {{ pager }}
+  </div>
+{% elseif id == 'gallery' %}
+  {% if gallery_layout == 'justified' %}
+    {% set class_gallery = 'justified_gallery' %}
+  {% elseif gallery_layout == 'grid_3_columns' %}
+    {% set class_gallery = 'grid-gallery-3col clearfix' %}
+  {% elseif gallery_layout == 'grid_4_columns' %}
+    {% set class_gallery = 'grid-gallery-4col clearfix' %}
+  {% elseif gallery_layout == 'grid_5_columns' %}
+    {% set class_gallery = 'grid-gallery-5col clearfix' %}
+  {% elseif gallery_layout == 'masonry_2_columns' %}
+    {% set class_gallery = 'masonry-2col' %}
+  {% elseif gallery_layout == 'masonry_3_columns' %}
+    {% set class_gallery = 'masonry-3col' %}
+  {% elseif gallery_layout == 'masonry_4_columns' %}
+    {% set class_gallery = 'masonry-4col' %}
+  {% elseif gallery_layout == 'masonry_5_columns' %}
+    {% set class_gallery = 'masonry-5col' %}
+  {% else %}
+    {% set class_gallery = 'grid-gallery-2col clearfix' %}
+  {% endif %}
+
+  {% if gallery_hover == 'hover_style1' %}
+    {% set class_gallery = class_gallery ~ ' gallery-style-1' %}
+  {% elseif gallery_hover == 'hover_style2' %}
+    {% set class_gallery = class_gallery ~ ' gallery-style-2' %}
+  {% elseif gallery_hover == 'hover_style3' %}
+    {% set class_gallery = class_gallery ~ ' gallery-style-3' %}
+  {% else %}
+    {% set class_gallery = class_gallery ~ ' gallery-style-4' %}
+  {% endif %}
+  <div{{ attributes }}>
+    {% if gallery_layout == 'masonry_5_columns' and portfolio_columns == 'grid_5_columns' %}
+      <div class="container-fluid">
+        <div class="{{ class_gallery }}">
+          {{ rows }}
+        </div>
+      </div>
+    {% elseif gallery_layout == 'justified' %}
+      <div class="container">
+        <div class="{{ class_gallery }}" data-rowHeight="250" data-margins="10">
+          {{ rows }}
+        </div>
+      </div>
+    {% else %}
+      <div class="container">
+        <div class="{{ class_gallery }}">
+          {{ rows }}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+{% elseif id == 'shop' %}
+  {%
+        set classes = [
+            dom_id ? 'js-view-dom-id-' ~ dom_id,
+        ]
+    %}
+        {{ exposed }}
+    <div{{ attributes.addClass(classes) }}>
+        {# {{ title_prefix }} #}
+        {{ title }}
+         {{ title_suffix }}
+        {{ header }}
+        {{ attachment_before }}
+        {{ rows }} 
+        {{ footer }}
+        {% if pager %}
+        <div class="pagination">
+            {{ pager }}
+        </div>
+        {% endif %}
+        {{ attachment_after }}
+        {{ more }}
+        {{ feed_icons }}
+    </div>
+{% elseif id == '_evockan_block_section_content' %}
+    {% if display_id == 'block_blog_homepage' or display_id == 'block_blog_small_business'  %}
+      <div class="container">
+        {{ header }}
+        <div class="row mt-40 wow fadeIn animated" data-wow-delay=".15s">
+          <div class="owl-carousel owl-theme owl-loaded owl-drag" id="blog-grid-simple">  
+            {{ rows }}
+          </div>                              
+        </div>
+      </div>
+    {% elseif display_id == 'block_team_corporate' or display_id == 'block_team_about_simple' %}
+      <div class="container">
+        {{ title }}
+        {{ header }}
+        <div class="row mt-30">
+          <div class="owl-carousel owl-theme" id="team-block">      
+            {{ attachment_before }}
+            {{ rows }}
+            {{ footer }}
+            {% if pager %}
+            <div class="pagination">
+                {{ pager }}
+            </div>
+            {% endif %}
+            {{ attachment_after }}
+            {{ more }}
+            {{ feed_icons }}
+          </div>
+        </div>
+      </div>
+    {% elseif display_id == 'block_testimonial_digital_agency' %}
+      <div class="container">
+        <div class="row">
+          {{ header }}
+          <div class="col-md-8 col-sm-8 col-12">
+            <div class="owl-carousel owl-theme" id="testmonials-modern">
+              {{ rows }}
+            </div>        
+          </div>                        
+        </div>
+      </div>
+    {% elseif display_id == 'block_timeline' %}
+      <div class="container">
+      {{ header }}
+      <div class="mt-70"></div>
+
+        <div class="timeline">
+        {% for i,row in rows.0['#rows'] %}
+              {% if loop.index is odd %}    
+                <div class="timeline-left-all">
+                  {{ row }}
+                </div>
+              {% else %}
+                <div class="timeline-right-all">
+                  {{ row }}
+                </div>
+              {% endif %}
+            {% endfor %}
+        </div>
+      </div>
+    {% elseif display_id == 'block_blog_marketing_agency' %}
+      <div class="container">
+       {{ header }}        
+        <div class="row mt-30">
+          {{ rows }}
+
+          {{ footer }}
+        </div>
+      </div>
+    {% elseif display_id == 'att_blog_marketing_agency' %}
+      <div{{ attributes }}>
+        {{ rows }}
+
+      </div> 
+    {% else %}
+      <div class="container">
+        {{ title }}
+        {{ header }}
+        <div{{ attributes }}>
+            {# {{ title_prefix }} #}
+            
+            {{ attachment_before }}
+            {{ rows }}
+            
+            {% if pager %}
+            <div class="pagination">
+                {{ pager }}
+            </div>
+            {% endif %}
+            {{ attachment_after }}
+            {{ more }}
+            {{ feed_icons }}
+        </div>
+        {{ footer }}
+      </div>
+    {% endif %}
+{% elseif id == 'taxonomy_term' %}
+  {%
+      set classes = [
+          dom_id ? 'js-view-dom-id-' ~ dom_id,
+      ]
+  %}
+      {{ exposed }}
+  <div{{ attributes.addClass(classes) }}>
+      {# {{ title_prefix }} #}
+      {{ title }}
+      {#  {{ title_suffix }} #}
+      {{ header }}
+      {{ attachment_before }}
+      {% if rows and blog_layout != 'list_right' and blog_layout != 'list_left'%} 
+        <div class="row"> 
+            {{ rows }}
+        </div>
+      {% else %}
+        {{ rows }}
+      {% endif %}
+      {{ footer }}
+      {% if pager %}
+      <div class="pagination">
+          {{ pager }}
+      </div>
+      {% endif %}
+      {{ attachment_after }}
+      {{ more }}
+      {{ feed_icons }}
+  </div>
+{% else %}
+
+    {% if display_id == 'block_filter_por' %}
+      <ul class="filter" id="filters">
+        {{ header }}
+        {{ rows }}
+      </ul>
+    {% elseif display_id == 'block_filter_por_page' or display_id == 'block_filter_blog' %}
+      <div id="filters" class="filters-dropdown">
+        <ul class="option-set" data-option-key="filter">
+          {{ header }}
+          {{ rows }}
+        </ul>
+      </div>
+    {% else %}
+        {%
+            set classes = [
+                dom_id ? 'js-view-dom-id-' ~ dom_id,
+            ]
+        %}
+            {{ exposed }}
+        <div{{ attributes.addClass(classes) }}>
+            {# {{ title_prefix }} #}
+            {{ title }}
+            {#  {{ title_suffix }} #}
+            {{ header }}
+            {{ attachment_before }}
+            {{ rows }}
+            {{ footer }}
+            {% if pager %}
+            <div class="pagination">
+                {{ pager }}
+            </div>
+            {% endif %}
+            {{ attachment_after }}
+            {{ more }}
+            {{ feed_icons }}
+        </div>
+    {% endif %}
+{% endif %}

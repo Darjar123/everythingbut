@@ -1,0 +1,19 @@
+{#
+/**
+ * @file
+ * Default theme implementation for an 'input' #type form element.
+ *
+ * Available variables:
+ * - attributes: A list of HTML attributes for the input element.
+ * - children: Optional additional rendered elements.
+ *
+ * @see template_preprocess_input()
+ *
+ * @ingroup themeable
+ */
+#}
+<span class="input-group-btn">
+	<button class="btn btn-info btn-md" type="submit">
+		<i class="fa fa-search">{{ children }}</i>
+	</button>
+</span>

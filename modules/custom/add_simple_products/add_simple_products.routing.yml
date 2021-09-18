@@ -1,0 +1,7 @@
+commerce_pos.scan_import:
+  path: '/admin/commerce/config/pos/scan_import'
+  defaults:
+    _form: '\Drupal\add_simple_products\Form\AddProductForm'
+    _title: 'POS Scan Import'
+  requirements:
+    _permission: 'access commerce pos administration pages'
