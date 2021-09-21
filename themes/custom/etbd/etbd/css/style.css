@@ -12192,7 +12192,7 @@ body .field--name-field-actors .field__item {
 }
 
 body #block-exposedformproduct-searchpage-1-4 {
-  background-image: url(/themes/custom/etbd/etbd/img/search_bg.jpg);
+  background-image: url(/themes/custom/etbd/etbd/img/logo_search_bg.png);
   padding: 60px;
 }
 
@@ -12210,5 +12210,49 @@ body #block-views-block-category-block-block-1-2 ul {
 
 body #block-views-block-category-block-block-1-2 ul li {
   margin: 0 0 0.25em 0;
+}
+
+body #block-etbd-branding .navbar-brand img {
+  padding: 0 0.5rem !important;
+  height: auto;
+  width: 250px;
+}
+
+body .navbar-expand-lg .navbar-nav .nav-link {
+  font-size: 0.9em;
+  text-transform: uppercase;
+}
+
+body #block-views-block-home-page-features-block-2,
+body #block-views-block-home-page-features-block-1 {
+  background: #000;
+}
+
+body #block-views-block-home-page-features-block-2 h2, body #block-views-block-home-page-features-block-2 .h2,
+body #block-views-block-home-page-features-block-1 h2,
+body #block-views-block-home-page-features-block-1 .h2 {
+  overflow: hidden;
+  text-align: center;
+  margin: 80px 0 0 0;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  padding: 10px 0;
+}
+
+body #block-views-block-home-page-features-block-2 .flexslider,
+body #block-views-block-home-page-features-block-1 .flexslider {
+  background: #000;
+  border: 4px solid #000;
+}
+
+body #block-views-block-home-page-features-block-1 h2:before, body #block-views-block-home-page-features-block-1 .h2:before, body #block-views-block-home-page-features-block-1 h2:after, body #block-views-block-home-page-features-block-1 .h2:after {
+  background-color: #111111;
+  content: "";
+  display: inline-block;
+  height: 3px;
+  position: relative;
+  vertical-align: middle;
 }
 /*# sourceMappingURL=style.css.map */

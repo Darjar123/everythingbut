@@ -30,6 +30,7 @@
         "drupal/field_group": "^3.2",
         "drupal/flexslider": "^2.0",
         "drupal/imce": "^2.4",
+        "drupal/masonry_views": "^1.1",
         "drupal/menus_attribute": "^1.2",
         "drupal/pathauto": "^1.8",
         "drupal/search_api_autocomplete": "^1.4",

@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Theme override to display a view of unformatted rows.
+ * Default theme implementation to display a view of unformatted rows.
  *
  * Available variables:
  * - title: The title of this group of rows. May be empty.
@@ -13,18 +13,29 @@
  *   used on rows.
  *
  * @see template_preprocess_views_view_unformatted()
+ *
+ * @ingroup themeable
+ *
+ * Sponsored by: www.freelance-drupal.com
  */
 #}
-{% if title %}
+
+{% if title and grouping %}
   <h3>{{ title }}</h3>
+  <div class="{{grouping_class}}">
 {% endif %}
+
 {% for row in rows %}
   {%
-    set row_classes = [
-      default_row_class ? 'views-row col-md-6 col-lg-4',
-    ]
+  set row_classes = [
+  default_row_class ? 'views-row',
+  ]
   %}
   <div{{ row.attributes.addClass(row_classes) }}>
-    {{- row.content -}}
+    {{ row.content }}
   </div>
 {% endfor %}
+
+{% if grouping %}
+  </div>
+{% endif %}
