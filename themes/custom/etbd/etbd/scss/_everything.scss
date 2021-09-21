@@ -14,7 +14,7 @@ body{
         text-decoration: none;
     }
     a:hover,
-    a.nav-item.nav-link:hover {
+    a.nav-item.nav-link:hover, a.nav-item.active{
         color: #f7a800;
         text-decoration: none;
     }
@@ -159,9 +159,8 @@ body{
             .flexslider {
                 background:#000;
                 border: 4px solid #000;
+                margin: 0px;
             }
-
-
     }
     #block-views-block-home-page-features-block-1 h2:before, #block-views-block-home-page-features-block-1 h2:after {
         background-color: #111111;
@@ -171,6 +170,21 @@ body{
         position: relative;
         vertical-align: middle;
     }
-
+    #block-views-block-home-page-features-block-2{
+       h2{
+           text-transform: uppercase;
+           text-align: center;
+       }
+    }
+    #block-views-block-category-block-block-2 {
+        h2{
+            text-transform: uppercase;
+            text-align: center;
+            padding: 20px 0 15px;
+            font-size: 1.5em;
+        }       
+    }
+    #edit-submit-product-search{
+        margin: 3px 0 0 0;
+    }
 }
-
