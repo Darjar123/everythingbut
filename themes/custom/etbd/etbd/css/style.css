@@ -12107,6 +12107,10 @@ body #block-etbd-account-menu a:hover {
   text-decoration: none;
 }
 
+body .field--name-field-product-images .field__item {
+  text-align: center;
+}
+
 body .myaccount {
   display: inline-block;
   vertical-align: bottom;

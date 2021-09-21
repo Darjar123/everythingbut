@@ -23,7 +23,7 @@ body{
         a{
             color: #ffffff;
             font-weight: 500;
-            text-decoration: none;
+            text-decoration: none; 
         }
         a:hover{
             color: #322e26;
@@ -31,6 +31,11 @@ body{
         }       
     }
 
+    .field--name-field-product-images{
+        .field__item{
+            text-align: center;
+        }
+    }
     .myaccount {
         display: inline-block;
         vertical-align: bottom;
