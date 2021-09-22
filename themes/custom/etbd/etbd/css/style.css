@@ -12276,4 +12276,14 @@ body #block-views-block-category-block-block-2 h2, body #block-views-block-categ
 body #edit-submit-product-search {
   margin: 3px 0 0 0;
 }
+
+body #block-adspace {
+  background: url(/themes/custom/etbd/etbd/img/commingsoon.jpg) no-repeat center top;
+  background-size: cover;
+  min-height: 300px;
+  color: #fff;
+  text-align: center;
+  padding: 30px 0 0 0;
+  font-size: 1.5em;
+}
 /*# sourceMappingURL=style.css.map */
