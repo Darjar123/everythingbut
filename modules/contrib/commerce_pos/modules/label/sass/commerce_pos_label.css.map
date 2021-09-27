@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,kCAAkC,CAAC,2BAA2B,CAAC;EAC7D,aAAa,EAAE,GAAG;CACnB",
-    "sources": [
-        "commerce_pos_label.scss"
-    ],
-    "names": [],
-    "file": "commerce_pos_label.css"
-}

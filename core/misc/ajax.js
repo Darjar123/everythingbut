@@ -125,7 +125,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   Drupal.ajax.expired = function () {
     return Drupal.ajax.instances.filter(function (instance) {
-      return instance && instance.element;
+      return instance && instance.element !== false && !document.body.contains(instance.element);
     });
   };
 
