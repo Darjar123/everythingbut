@@ -1,0 +1,16 @@
+{% set img = file_url (node.uc_product_image.0.entity.uri.value) %}
+{% set img_alt = node.uc_product_image.0.alt %}
+<div class="item-pro-active">
+	{% if img %}
+		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6  product-image">
+			<img src="{{ img }}" alt="{{ img_alt }}">
+		</div>
+	{% endif %}
+	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 product-info">
+		
+		<h4><a href="{{ url }}">{{node.getTitle()|t}}</a></h4>
+		<div class="pro-desc">{{ node.body.summary|length > 292 ? node.body.summary|slice(0,292) ~ '...' : node.body.summary }}</div>
+		<div class="pro-price">{{ content.price }}</div>
+		<div class="pro-btn class_cart">{{ content.add_to_cart }}</div>
+	</div>
+</div>

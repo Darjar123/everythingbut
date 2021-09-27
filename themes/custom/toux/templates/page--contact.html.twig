@@ -1,0 +1,23 @@
+{% include theme_path ~ "/templates/header.html.twig" %}
+<div id="no1_content" class="wrap layout-m">
+	{% if page.section %}
+		{{ page.section }}
+	{% endif %}
+	<div class="container">
+		<div class="row">
+			<div id="contact_gmap" class="col-md-12">
+				<div class=" clearfix">
+					<div class="contact-content">
+						<div class="page-title">
+							<h1>{{ 'Leave us a message'|t}} </h1>
+						</div>
+						{% if page.content %}
+							{{ page.content }}
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% include theme_path ~ "/templates/footer.html.twig" %}

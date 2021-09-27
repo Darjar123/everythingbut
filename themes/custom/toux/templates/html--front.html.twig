@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html {{ html_attributes }} >
+    <head>
+        <head-placeholder token="{{ placeholder_token|raw }}">
+            <title>{{ head_title|safe_join(' | ') }}</title>
+            <css-placeholder token="{{ placeholder_token|raw }}">
+            <js-placeholder token="{{ placeholder_token|raw }}">
+            {% if general_setting_tracking_code != '' %}
+              {{ general_setting_tracking_code|t }}
+            {% endif %}
+            {% if custom_css != '' %}
+              <style type="text/css" media="all">
+              {{ custom_css|t }}
+              </style>
+            {% endif %}
+      </head>
+    <body id="bd" class="cms-index-index cms-toux-home-page-v1 cms-toux-home-page-v2 homepage">
+        <a href="#main-content" class="visually-hidden focusable">
+          {{ 'Skip to main content'|t }}
+        </a>
+        <div id="no1_wrapper">
+          {{ page_top }}
+          {{ page }}
+          {{ page_bottom }}
+        </div>
+        <js-bottom-placeholder token="{{ placeholder_token|raw }}">
+    </body>
+</html>

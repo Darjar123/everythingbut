@@ -1,0 +1,17 @@
+<div class="blog-content">
+    {% if user_picture %}
+        <div class="blog-coments-img">
+            {{ user_picture }}
+        </div>
+    {% endif %}
+    <div class="blog-coments-emma">
+        <div class="title">
+            <a href="">{{ author }}</a>
+            <span class="date">{{ node.created.value|date('M d, Y') }}</span>
+            
+        </div>
+        <div class="depcisen">
+            {{ content.comment_body }}
+        </div>    
+    </div>
+</div>

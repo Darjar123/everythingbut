@@ -1,0 +1,40 @@
+{% include theme_path ~ "/templates/header.html.twig" %}
+{% if page.breadcrumb %}
+	<div id="no1_breadcrumbs" class="wrap">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div id="no1_titlepage"></div>
+					<div id="no1_pathway" class="clearfix">
+						<div class="pathway-inner">
+							<span class="icon-pointer "></span>
+							
+							{{ page.breadcrumb }}
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}
+<div id="no1_content" class="wrap">
+	<div class="container">
+		<div class="row">
+			<div id="no1_main" class="col-md-12 col-main blogs-masonry-page">
+				<div id="no1_mainmidle" class="no1_touxt_masonry">
+					<div class="blog_masonry">
+						<div id="masonry" class="blogs-page masonry-wrap">
+							{% if page.content %}
+								{{ page.content }}
+							{% endif %}
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+{% include theme_path ~ "/templates/footer.html.twig" %}
