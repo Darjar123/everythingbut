@@ -1,0 +1,52 @@
+name: Toux
+type: theme
+description: 'Blog Theme for Bloggers'
+core: 8.x
+screenshot: screenshot.png
+libraries:
+  - toux/toux-lib
+stylesheets-remove:
+  - core/themes/stable/css/views/views.module.css
+  - core/themes/stable/css/system/components/align.module.css
+  - core/assets/vendor/normalize-css/normalize.css
+  - core/modules/system/css/system.module.css
+  - core/modules/system/css/system.theme.css
+  - core/modules/views/css/views.module.css
+regions:
+  search: 'Search'
+  search_m: 'Search Mobile'
+  search_site: 'Search Site'
+  header_top: 'Header top'
+  header_site: 'Header Site'
+  logo: 'Logo'
+  logo_m: 'Logo Mobile'
+  header_cart: 'Header Cart'
+  header_cart_m: 'Header Cart Mobile'
+  header_left: 'Header Left'
+  header_right: 'Header Right'
+  breadcrumb: 'Breadcrumb'
+  menu_top: 'Menu Top'
+  main_menu: 'Main menu'
+  menu_m: 'Menu Mobile'
+  menu_site: 'Menu Site'
+  slider: 'Slider'
+  content: 'Main content'
+  sidebar: 'Sidebar'
+  section_left: 'Section Left'
+  section_right: 'Section Right'
+  section: 'Section content'
+  section_bottom: 'Section Bottom'
+  footer: 'Footer'
+  footer_column_1: 'Footer Column 1'
+  footer_column_2: 'Footer Column 2'
+  footer_column_3: 'Footer Column 3'
+  footer_column_4: 'Footer Column 4'
+  footer_column_5: 'Footer Column 5'
+  footer_column_6: 'Footer Column 6'
+  footer_column_7: 'Footer Column 7'
+  footer_column_8: 'Footer Column 8'
+  footer_column_9: 'Footer Column 9'
+  footer_column_10: 'Footer Column 10'
+
+
+

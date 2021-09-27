@@ -1,0 +1,47 @@
+{% set img = file_url (node.uc_product_image.0.entity.uri.value) %}
+{% set img_alt = node.uc_product_image.0.alt %}
+<div class="item col-lg-2 col-md-2 col-sm-3 col-xs-6 col-phone-12">
+    <div class="item-inner">
+        <div class="prd">
+        {% if img %}
+            <div class="item-img clearfix">
+                <a class="product-image have-additional"
+                    title="{{ node.getTitle()|slice(0,20)}}"
+                    href="{{ url }}">
+                    <span class="img-main">
+                        <img src="{{ img_uri_171_190 }}" alt="{{ img_alt }}">
+                    </span>
+                </a>
+                <div class="action-bot action123">
+                    <div class="wrap-addtocart">
+                       {{ content.add_to_cart }}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+            <div class="item-info">
+                <div class="info-inner">
+                    <div class="item-cat">
+                        
+                        {{ content.field_categories_product_electro }}
+                    </div>
+                    <div class="item-title">
+                        <a title="{{ node.getTitle()|slice(0,20)}}"
+                            href="{{ url }}">
+                        {{ node.getTitle()|slice(0,20)}}</a>
+                    </div>
+                    <div class="item-price">
+                        <div class="price-box">
+                            <span class="regular-price">
+                                <span class="price">
+                                <span class="price1">{{ content.price }}</span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

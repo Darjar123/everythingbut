@@ -1,0 +1,8 @@
+{% if container_type != 'view' %}
+	<div{{ attributes|without('id') }}>
+	{{ children }}
+	</div>
+{% else %}
+	{{ children }}
+{% endif %}
+

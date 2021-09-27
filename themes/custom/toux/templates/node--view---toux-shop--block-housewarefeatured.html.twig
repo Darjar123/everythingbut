@@ -1,0 +1,19 @@
+{% set img = file_url (node.uc_product_image.0.entity.uri.value) %}
+{% set img_alt = node.uc_product_image.0.alt %}
+<div class="col-md-3 col-sm-6 product_normal text-center class_featured">
+	{% if img %}
+		<div class="product_img">
+			<a href="{{ url }}"><img src="{{ img }}" alt="{{ img_alt }}"></a>
+			<div class="action-bot">
+				<div class="wrap-addtocart">
+					{{ content.add_to_cart }}
+				</div>
+			</div>
+		</div>
+	{% endif %}
+	<div class="product_info">
+		<h4><a href="{{ url }}">{{ node.getTitle()|t }}</a></h4>
+		<div class="title_cat blue-cat">{{ content.field_categories_product_housewa }}</div>
+		<div class="product_price">{{ content.price }}</div>
+	</div>
+</div>

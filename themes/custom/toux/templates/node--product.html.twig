@@ -1,0 +1,255 @@
+{% set product_belongs = node.field_products_belong.0.value %}
+{% set product_image = node.uc_product_image %}
+{% set image = file_url (node.uc_product_image.0.entity.uri.value) %}
+{% set img_alt = node.uc_product_image.0.alt %}
+{% if not page %}
+{% if current_term %}
+    <div class="postWrapper masonry-item class_text">
+		<div class="post-featured">
+			{% if img_uri_275_305 %}
+				<a class="post-img class_image" href="{{ url }}">
+					<img src="{{ img_uri_275_305 }}" alt="{{ img_alt }}">
+				</a>
+			{% endif %}
+		</div>
+		<div class="post-content ">
+			<div class="post-title">
+				<a href="{{ url }}">{{ node.getTitle()|t }}</a>
+			</div>
+			<div class="item-price">
+				<div class="price-box">
+					<span class="regular-price">
+						<span class="price">
+							<span class="price1">{{ content.price }}</span>
+						</span>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+{% else %}
+<div class="item col-lg-2d4 col-md-3 col-sm-4 col-xs-6 col-phone-12 class_last">
+    <div class="item-inner">
+        <div class="prd">
+            {% if img_uri_216_240 %}
+                <div class="item-img clearfix">
+                    <a class="product-image have-additional"
+                        title="{{ node.getTitle()|t }}"
+                        href="{{ url }}">
+                        <span class="img-main">
+                        
+                            <img src="{{ img_uri_216_240 }}" alt="{{ img_alt }}">
+                       
+                        </span>
+                    </a>
+                    <div class="action-bot">
+                        <div class="wrap-addtocart">
+                            {{ content.add_to_cart }}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            <div class="item-info">
+                <div class="info-inner">
+                {% if product_belongs == 'clothes' %}
+                    <div class="item-cat">
+                        
+                        {{ content.field_categories_product_clothes }}
+                    </div>
+                {% elseif product_belongs == 'houseware' %}
+                    <div class="item-cat">
+                       
+                        {{ content.field_categories_product_housewa }}
+                    </div>
+                {% elseif product_belongs == 'cosmetic' %}
+                    <div class="item-cat">
+                        
+                        {{ content.field_categories_product_cosmeti }}
+                    </div>
+                {% elseif product_belongs == 'electronic' %}
+                    <div class="item-cat">
+                        
+                        {{ content.field_categories_product_electro }}
+                    </div>
+                {% endif %}
+                    <div class="item-title">
+                        <a title="{{ node.getTitle()|t }}"
+                            href="{{ url }}">
+                        {{ node.getTitle()|slice(0,20) }} </a>
+                    </div>
+                    
+                    <div class="item-price">
+                        <div class="price-box">
+                            <span class="regular-price">
+                                <span class="price">
+                                    <span class="price1">{{ content.price }}</span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+	
+
+{% else %}
+	<div class="product-view no1-product-detail">
+		<div class="product-essential clearfix">
+			<div class="row row-img">
+				<div class="product-img-box col-md-6 col-sm-5">
+					{% if product_image.0.value  and product_image|length ==1%}
+						<div>
+							<img src="{{ image }}" alt="{{ img_alt }}" />
+						</div>
+					{% elseif product_image.0.value and product_image|length >1 %}
+						<div class="slider-for-detail">
+							<div>
+								<img src="{{ image }}"  alt="{{ img_alt }}" />
+							</div>
+						</div>
+						<div class="slider-nav-detail">
+							{% for img in product_image|slice(1,5) %}
+								<div>
+									<img src="{{ file_url(img.entity.uri.value)}}"  alt="{{img.entity.alt}}" />
+								</div>
+							{% endfor %}
+						</div>
+						
+					{% endif %}
+				</div>
+				<div id="product_shop" class="product-shop col-md-6 col-sm-7">
+					<div class="item-inner product_list_style">
+						<div class="pager-product">
+							{{ previous_post|t }}
+							{{ next_post|t }}
+						</div>
+						<div class="item-info">
+							<div class="item-title">
+								<a title="{{ node.getTitle()|t }}">{{ node.getTitle()|t }}</a>
+							</div>
+							<div class="item-price">
+								<div class="price-box">
+									<span class="regular-price">
+										<span class="price">{{ content.price }}</span>
+									</span>
+								</div>
+								<div class="availability">
+									<p class="style1">{{ 'Availability:'|t }} <strong>{{ content.field_availability }}</strong></p>
+								</div>
+							</div>
+							<div class="desc std">
+								<h5>{{ 'QUICK OVERVIEW'|t }}</h5>
+								<p>{{ node.body.summary }}</p>
+							</div>
+							
+							<div class="actions">
+								
+								<div class="btn-add">
+									{{ content.add_to_cart }}
+								</div>
+								
+								{% if product_belongs == "clothes" %}
+									<div class="cate">
+										<strong>{{ 'Categories:'|t }}</strong>{{ content.field_categories_product_clothes }}
+									</div>
+									<div class="cate">
+										<strong>{{ 'Size:'|t }}</strong>{{ content.field_categories_clothes_size }}
+									</div>
+								{% elseif product_belongs == "houseware" %}
+									<div class="cate">
+										<strong>{{ 'Categories:'|t }}</strong>{{ content.field_categories_product_housewa }}
+									</div>
+									<div class="cate">
+										<strong>{{ 'Size:'|t }}</strong>{{ content.field_categories_houseware_size }}
+									</div>
+								{% elseif product_belongs == "cosmetic" %}
+									<div class="cate">
+										<strong>{{ 'Categories:'|t }}</strong>{{ content.field_categories_product_cosmeti }}
+									</div>
+									<div class="cate">
+										<strong>{{ 'Size:'|t }}</strong>{{ content.field_categories_cosmetic_size }}
+									</div>
+								{% elseif product_belongs == "electronic" %}
+									<div class="cate">
+										<strong>{{ 'Categories:'|t }}</strong>{{ content.field_categories_product_electro }}
+									</div>
+									<div class="cate">
+										<strong>{{ 'Size:'|t }}</strong>{{ content.field_categories_electronic_size }}
+									</div>
+								{% endif %}
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="bottom">
+		<div class="container">
+			<div id="no1_mainm" class="col-md-12">
+				<div id="no1_description" class="description">
+					<div class="no1_producttaps_wraps1">
+						<h3 class="detail-none">{{ 'Description'|t }}
+						<i class="fa fa-align-justify"></i>
+						</h3>
+						
+						<ul class="nav nav-tabs" role="tablist">
+							<li role="presentation" class="active style-detail"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">{{ 'Product Description'|t }}</a></li>
+							<li role="presentation" class="style-detail"><a href="#additional" aria-controls="home" role="tab" data-toggle="tab">{{ 'Additional information'|t }}</a></li>
+							<li role="presentation" class="style-detail tab-review"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">{{ 'Comments'|t}}</a></li>
+							<li role="presentation" class="style-detail"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">{{ 'Product Tags'|t }}</a></li>
+						</ul>
+						
+						<div class="tab-content class_tab">
+							<div role="tabpanel" class="tab-pane active" id="home">
+								<div class="style1">
+									{{ content.body }}
+								</div>
+							</div>
+							<div role="tabpanel" class="tab-pane" id="additional">
+								<div class="style1">
+									{{ content.field_add_imformation }}
+								</div>
+							</div>
+							<div role="tabpanel" class="tab-pane" id="profile">
+								<div class="collateral-box">
+									<div class="form-add">
+										
+										{{ content.field_product_comment }}
+									</div>
+								</div>
+							</div>
+							<div role="tabpanel" class="tab-pane" id="messages">
+								<div class="collateral-box">
+									{{ content.field_tags }}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<div class="products-upsell">
+		<div class="container">
+			<div class="detai-products1">
+				<div class="title">
+					<h3>{{ 'You might also like'|t }}</h3>
+				</div>
+				<div class="products-grid">
+					<div id="related_upsell" class="item-row owl-carousel owl-theme" style="display: inline-block">
+						{% for i in related_products|slice(0,4) %}
+							{{i|raw}}
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+{% endif %}

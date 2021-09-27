@@ -1,0 +1,36 @@
+{% if region == 'section' %}
+  <div{{ attributes }}>
+    {{ title_prefix }}
+    {% if label %}
+      <h2 class="title">{{ label }}</h2>
+    {% endif %}
+    {{ title_suffix }}
+    {% if content %}
+      {{ content }}
+    {% endif %}
+  </div>
+{% elseif region == 'sidebar' %}
+  <div{{ attributes }}>
+    {{ title_prefix }}
+    {% if label %}
+      <div class="widget-title">
+        <strong>{{ label }}</strong>
+      </div>
+    {% endif %}
+    {{ title_suffix }}
+    {% if content %}
+      {{ content }}
+    {% endif %}
+  </div>
+{% else %}
+  <div{{ attributes }}>
+    {{ title_prefix }}
+    {% if label %}
+      <h3{{ title_attributes }}>{{ label }}</h3>
+    {% endif %}
+    {{ title_suffix }}
+    {% if content %}
+      {{ content }}
+    {% endif %}
+  </div>
+{% endif %}

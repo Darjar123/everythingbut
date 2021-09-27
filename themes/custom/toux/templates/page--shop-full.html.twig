@@ -1,0 +1,29 @@
+{% include theme_path ~ "/templates/header.html.twig" %}
+<div id="no1_content" class="wrap layout-lm">
+	<div class="">
+		<div id="top_main" class="col-md-12">
+			{% if page.section %}
+				{{ page.section }}
+			{% endif %}
+		</div>
+		<div class="container">
+			<div id="no1_main" class="col-md-12 col-main">
+				<div id="no1_mainmidle">
+					<div class="category-products">
+						<div class="no1-products-container clearfix">
+							<div class="products-grid row style_grid">
+							{% if page.content %}
+								{{ page.content }}
+							{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% if page.section_bottom %}
+	{{ page.section_bottom }}
+{% endif %}
+{% include theme_path ~ "/templates/footer.html.twig" %}

@@ -1,0 +1,66 @@
+{% include theme_path ~ "/templates/header.html.twig" %}
+{% if page.breadcrumb %}
+	<div id="no1_breadcrumbs" class="wrap">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div id="no1_titlepage"></div>
+					<div id="no1_pathway" class="clearfix">
+						<div class="pathway-inner">
+							<span class="icon-pointer "></span>
+							
+							{{ page.breadcrumb }}
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}
+{% if blog_style == 'blog_default' %}
+	<div id="no1_content" class="wrap">
+		<div class="container">
+			<div class="row">
+				
+				<div id="no1_main" class="col-md-9 col-main">
+					<div id="no1_mainmidle">
+						<div class="blogs-page">
+							{% if page.content %}
+								{{ page.content }}
+							{% endif %}
+						</div>
+						
+					</div>
+				</div>
+				{% if page.sidebar %}
+					<div id="no1_right" class="col-md-3">
+						<div class="wrap-in">
+							{{ page.sidebar }}
+						</div>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+{% elseif blog_style == 'blog_masonry' %}
+	<div id="no1_content" class="wrap">
+		<div class="container">
+			<div class="row">
+				<div id="no1_main" class="col-md-12 col-main blogs-masonry-page">
+					<div id="no1_mainmidle" class="no1_touxt_masonry">
+						<div class="blog_masonry">
+							<div id="masonry" class="blogs-page masonry-wrap">
+								{{ page.content }}
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	{{ page.section_bottom }}
+{% endif %}
+{% include theme_path ~ "/templates/footer.html.twig" %}

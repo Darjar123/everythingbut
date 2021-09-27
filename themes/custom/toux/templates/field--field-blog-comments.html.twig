@@ -1,0 +1,9 @@
+{{ comments }}
+<div id="respond" class="comment-respond">
+	<h4 id="reply-title" class="comment-reply-title heading">
+	<span>{{ 'Leave a Reply'|t }}</span>
+	</h4>
+	{% if comment_form %}
+		{{ comment_form }}
+	{% endif %}
+</div>

@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div id="no1_main" class="col-md-12 col-main">
+            <div id="no1_mainmidle">
+                <div id="no1_producttaps1" class="no1_producttaps_wraps">
+                    {% if header %}
+                        {{ header }}
+                    {% endif %}
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="best_seller">
+                            <div class="products-grid row style_grid">
+                                {{ rows }}
+                            </div>
+                        </div>
+                        {% if footer %}
+                            {{ footer }}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

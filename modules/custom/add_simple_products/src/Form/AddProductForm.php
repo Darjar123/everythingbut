@@ -173,9 +173,11 @@ class AddProductForm extends FormBase
             
             $product->field_product_images[] = ['target_id' => $file_info->id() , 'alt' => $values['name'], 'title' => 'Title' ];
             $product->save();
-
+            
+            if(isset($values['category'])){
             $categories = explode(",", $values['category']);
             $terms_prod = array();
+
 
             foreach ($categories as $category)
             {
@@ -211,12 +213,15 @@ class AddProductForm extends FormBase
 
             
             $product->save();
+          }
+
+          if (isset($values['actors'])){
             $str_actors = substr($values['actors'],0,-1);
             $actors = explode(",", $str_actors);
             
-            
+          
             $terms_prod = array();
-
+            
             foreach ($actors as $actor)
             {
             
@@ -249,8 +254,9 @@ class AddProductForm extends FormBase
                 }
              
             }
+          }
             /***********        check media type        ************/
-        
+        if(isset($values['media_type'])){
             $mediatypeslist = array("other","DVD","Blueray","Laser disc","VHS","HD","3D");
             $terms_prod = array();
             
@@ -284,7 +290,7 @@ class AddProductForm extends FormBase
                   $product->field_media_type[] = $terms->id() ;
                 }
             $product->save();
-           
+              }
          
             drupal_set_message("New product and New variation" . $values['name'] .$values['description']. " saved");
         }

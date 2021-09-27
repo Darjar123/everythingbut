@@ -1,0 +1,20 @@
+<div class="container">
+	<div class="row">
+		<div class="box_service col-sm-6 col-xs-12">
+			<div class="con_partners row">
+			{% if rows %}
+				<div class="row">
+					{{ rows }}
+				</div>
+			{% endif %}
+				{% if footer %}
+					{{ footer }}
+				{% endif %}
+			</div>
+		</div>
+		{% if attachment_after %}
+			{{ attachment_after }}
+		{% endif %}
+		
+	</div>
+</div>
