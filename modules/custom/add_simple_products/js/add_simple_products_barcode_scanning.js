@@ -48,46 +48,41 @@
     function searchIMDB(movieName) {
         let movieTitle = movieName;
         //pull movie date IMDB
-        const settingsIMDB = {
-            "async": true,
-            "crossDomain": true,
-            "url": "https://imdb8.p.rapidapi.com/title/find?q=" + movieTitle,
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-key": "aaed1e5a26msh548986faf440074p10f599jsn52fce399fdac",
-                "x-rapidapi-host": "imdb8.p.rapidapi.com"
-            }
+        const settings = {
+        	"async": true,
+        	"crossDomain": true,
+        	"url": "https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-movies-by-title&title=" + movieTitle,
+        	"method": "GET",
+        	"headers": {
+        		"x-rapidapi-host": "movies-tvshows-data-imdb.p.rapidapi.com",
+        		"x-rapidapi-key": "50c7ca9354msh84bb82c3c208a3dp1090b4jsned677d4a36c6"
+        	}
         };
 
         //get title suggestions
-        $.ajax(settingsIMDB).done(function(responseIMDB) {
-            console.log(responseIMDB);
-            if (responseIMDB.length !== 0) {
+        $.ajax(settings).done(function (response) {
+            if (response.length !== 0) {
+                
                 $('#sugesstion-overlay').remove();
-                $("#add-simple-products").append("<div id='sugesstion-overlay'><h2>select your movie</h2> <div id='suggestion'></div></div>");
-
-
-                $.each(responseIMDB['results'], function(index, value) {
-                    if (value['titleType'] == 'movie' || value['titleType'] == 'tvSeries') {
+                $("#add-simple-products").append("<div id='sugesstion-overlay' style='position:fixed;top:130px' ><h2>select your movie</h2> <div id='suggestion'></div></div>");
+                                
+                $.each(response['movie_results'], function(index, value) {
+                 console.log(value['imdb_id']);
                         var productName = value['title'];
-                        var id = value['id'].split("/");
-                        var productId = id['2'];
-
+                        var productId = value['imdb_id'];
                         var actors = "";
                         $.each(value['principals'], function(key, value) {
                             actors += value['name'] + ',';
                         });
                         
                         $('#suggestion').append("<div class='items'  id='" + productId + "' actors='" + actors + "'>" + productName + " " + value['year'] + "</div>");
-                    }
+                 
                 });
 
                 $("div#suggestion .items").on('click', function(e) {
 
-                    $('#edit-actors').val($(this).attr('actors'));
                     // Get description info
                     getOverview($(this).attr('id'));
-                    getvideo($(this).attr('id'));
                 });
 
             } else {
@@ -102,19 +97,20 @@
         const settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://imdb8.p.rapidapi.com/title/get-overview-details?tconst=" + imdbId + "&currentCountry=US",
+            "url": "https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-movie-details&imdb=" + imdbId + "&currentCountry=US",
             "method": "GET",
             "headers": {
-                "x-rapidapi-key": "aaed1e5a26msh548986faf440074p10f599jsn52fce399fdac",
-                "x-rapidapi-host": "imdb8.p.rapidapi.com"
+                "x-rapidapi-key": "50c7ca9354msh84bb82c3c208a3dp1090b4jsned677d4a36c6",
+                "x-rapidapi-host": "movies-tvshows-data-imdb.p.rapidapi.com"
             }
         };
 
         $.ajax(settings).done(function(responseOverview) {
-
-            $('#edit-description').val(responseOverview['plotOutline']['text']);
+            console.log(responseOverview);
+            $('#edit-description').val(responseOverview['description']);
             $('#edit-category').val(responseOverview['genres']);
-            $('#edit-ratings').val(responseOverview['ratings']['rating']);
+            $('#edit-actors').val(responseOverview['stars']);
+            $('#edit-ratings').val(responseOverview['imdb_rating']);
         });
     }
 
@@ -123,11 +119,11 @@
         const settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://imdb8.p.rapidapi.com/title/get-videos?tconst=" + imdbId + "&limit=1&region=US",
+            "url": "https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-movie-details&imdb=" + imdbId + "&limit=1&region=US",
             "method": "GET",
             "headers": {
-                "x-rapidapi-key": "aaed1e5a26msh548986faf440074p10f599jsn52fce399fdac",
-                "x-rapidapi-host": "imdb8.p.rapidapi.com"
+                "x-rapidapi-key": "50c7ca9354msh84bb82c3c208a3dp1090b4jsned677d4a36c6",
+                "x-rapidapi-host": "movies-tvshows-data-imdb.p.rapidapi.com"
             }
         };
 
@@ -145,8 +141,8 @@
             "url": "https://imdb8.p.rapidapi.com/title/get-video-playback?viconst=" + vid[2] + "&region=US",
             "method": "GET",
             "headers": {
-                "x-rapidapi-key": "aaed1e5a26msh548986faf440074p10f599jsn52fce399fdac",
-                "x-rapidapi-host": "imdb8.p.rapidapi.com"
+                "x-rapidapi-key": "50c7ca9354msh84bb82c3c208a3dp1090b4jsned677d4a36c6",
+                "x-rapidapi-host": "movies-tvshows-data-imdb.p.rapidapi.com"
             }
         };
 

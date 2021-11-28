@@ -35,4 +35,8 @@ function add_simple_products_form_alter(&$form, FormStateInterface $form_state, 
     $form['#prefix'] =
       '<span id="scanner-toggle"></span>';
   }
+  
+  if ($form_id == 'commerce_pos_label_print_form') {
+    unset($form['label_format']['#options']['commerce_pos_label_30334']);
+  }
 }

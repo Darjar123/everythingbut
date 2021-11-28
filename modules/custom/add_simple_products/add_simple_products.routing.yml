@@ -5,3 +5,19 @@ commerce_pos.scan_import:
     _title: 'POS Scan Import'
   requirements:
     _permission: 'access commerce pos administration pages'
+
+commerce_pos.scan_import_music:
+  path: '/admin/commerce/config/pos/scan_import_music'
+  defaults:
+    _form: '\Drupal\add_simple_products\Form\AddMusicForm'
+    _title: 'POS Scan Import Music'
+  requirements:
+    _permission: 'access commerce pos administration pages'
+    
+commerce_pos.scan_import_barcade_print:
+  path: '/admin/commerce/config/pos/scan_print_barcode/{arg}'
+  defaults:
+    _controller: '\Drupal\add_simple_products\Controller\PrintBarcode::print'
+    _title: 'POS Print barcode'
+  requirements:
+    _permission: 'access commerce pos administration pages'

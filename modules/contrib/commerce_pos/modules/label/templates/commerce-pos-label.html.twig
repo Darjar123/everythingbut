@@ -14,16 +14,13 @@
 #}
 
 <div class="commerce-pos-label">
-    <div class="title">
-        {{ title }}
-    </div>
     <div class="description">
         {{ description }}
     </div>
     <div class="price">
         {{ price }}
     </div>
-    <div class="barcode">
-        <img src="data:image/png;base64,{{ barcode | raw }}">
+    <div class="barcode" style="300px">
+        <img style="width:300px" src="data:image/png;base64,{{ barcode | raw }}">
     </div>
 </div>

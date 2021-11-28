@@ -492,17 +492,20 @@ class POSForm extends ContentEntityForm {
    * Defines displayOrderComment helper function.
    */
   protected function displayOrderComment() {
-    // Get the default commerce log view.
-    $view = Views::getView('commerce_activity');
     /* @var \Drupal\commerce_order\Entity\Order $order */
     $order = $this->entity;
-    if ($view) {
-      $view->setDisplay('default');
-      $view->setArguments([$order->id(), 'commerce_order']);
-      // Get generated views.
-      $render = $view->render();
-    }
-    return $render;
+
+    // Get the default commerce log view.
+    $view = Views::getView('commerce_activity');
+
+    $view->setDisplay('default');
+    $view->setArguments([$order->id(), 'commerce_order']);
+
+    // as per https://www.drupal.org/project/commerce/issues/2908196
+    // commerce now adds an add comment form to the views header, which we don't want
+    $view->removeHandler('default', 'header', 'commerce_log_admin_comment_form');
+
+    return $view->render();
   }
 
   /**
@@ -570,52 +573,48 @@ class POSForm extends ContentEntityForm {
     parent::validateForm($form, $form_state);
 
     // Only validates 'Order' form.
-    if ($form_state->get('step') == 'order') {
-
-      // TODO Suppress the default 'This value should not be null' message.
-      // If no product has been added to order...
-      if (empty($this->entity->getItems())) {
-        $form_state->setErrorByName('no_product_selected',
-          $this->t('Cannot submit an empty order')->render());
-      }
-
-      // Get order customer information.
-      /** @var \Drupal\commerce_order\Entity\OrderInterface $order */
-      $order = $this->entity;
-      $customer_id = $order->getCustomerId();
-
-      // If customer is not set aka 'Anonymous'.
-      if ($customer_id == 0) {
-
-        // This protects against if the 'Remove' customer button does not clear
-        // 'Customer email' field.
-        $form['mail']['widget'][0]['value']['#value'] = '';
-        $form['mail']['widget'][0]['value']['#default_value'] = '';
-
-        // Get input from customer widget.
-        $customer_input = $form_state->getValue(['uid'])[0]['target_id']['order_customer']['customer_textfield'];
-
-        // If customer widget has input.
-        if (!empty($customer_input)) {
-
-          // If input is not a valid email address.
-          if (!filter_var($customer_input, FILTER_VALIDATE_EMAIL)) {
-
-            // If customer widget has not matched input with a user.
-            if ($customer_input != User::load($customer_id)->getUsername()) {
-
-              // Set 'invalid_customer_id' error.
-              $link = Link::createFromRoute(t('Create New Customer Account'),
-                'user.admin_create')->toString();
-              $form_state->setErrorByName('invalid_customer_id',
-                $this->t('Customer account for "@input" not found. @link',
-                  ['@link' => $link, '@input' => $customer_input]));
-            }
-          }
-        }
-      }
-
+    if ($form_state->get('step') != 'order') {
+      return;
     }
+
+    // TODO Suppress the default 'This value should not be null' message.
+    // If no product has been added to order...
+    if (empty($this->entity->getItems())) {
+      $form_state->setErrorByName('no_product_selected',
+        $this->t('Cannot submit an empty order')->render());
+    }
+
+    // Get order customer information.
+    /** @var \Drupal\commerce_order\Entity\OrderInterface $order */
+    $order = $this->entity;
+    $customer_id = $order->getCustomerId();
+
+    // If customer is not set aka 'Anonymous'.
+    if ($customer_id != 0) {
+      return;
+    }
+
+    // This protects against if the 'Remove' customer button does not clear
+    // 'Customer email' field.
+    $form['mail']['widget'][0]['value']['#value'] = '';
+    $form['mail']['widget'][0]['value']['#default_value'] = '';
+
+    // Get input from customer widget.
+    $customer_input = $form_state->getValue(['uid'])[0]['target_id']['order_customer']['customer_textfield'];
+
+    // If customer widget has input.
+    if (empty($customer_input)
+      || filter_var($customer_input, FILTER_VALIDATE_EMAIL)
+      || $customer_input == User::load($customer_id)->getAccountName()) {
+      return;
+    }
+
+    // Set 'invalid_customer_id' error.
+    $link = Link::createFromRoute(t('Create New Customer Account'),
+      'user.admin_create')->toString();
+    $form_state->setErrorByName('invalid_customer_id',
+      $this->t('Customer account for "@input" not found. @link',
+        ['@link' => $link, '@input' => $customer_input]));
   }
 
   /**
@@ -771,7 +770,13 @@ class POSForm extends ContentEntityForm {
 
     $order = $this->entity;
 
-    $transition = $order->getState()->getWorkflow()->getTransition('place');
+    $state = $order->getState()->getId();
+    if($state == 'completed') {
+      $transition = $order->getState()->getWorkflow()->getTransition('return');
+    }
+    else {
+      $transition = $order->getState()->getWorkflow()->getTransition('place');
+    }
     $order->getState()->applyTransition($transition);
     $order->save();
 

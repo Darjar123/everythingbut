@@ -338,7 +338,8 @@ class PosOrderItemWidget extends WidgetBase implements WidgetInterface, Containe
     // If we don't render product here the title appears in the wrong place.
     // @todo work out why and fix this.
     $view_builder = $this->entityTypeManager->getViewBuilder($order_item->getEntityTypeId());
-    $product_render = $view_builder->view($product, $this->getSetting('purchasable_entity_view_mode'), $order_item->language()->getId());
+    $product_render = $view_builder->view($product, $this->getSetting('purchasable_entity_view_mode'), $order_item->language()
+      ->getId());
     $currency_formatter = \Drupal::service('commerce_price.currency_formatter');
     $unit_price = $order_item->getUnitPrice();
 

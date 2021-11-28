@@ -123,8 +123,7 @@ class POS extends ControllerBase {
     $form_object
       ->setModuleHandler($this->moduleHandler())
       ->setEntityTypeManager($this->entityTypeManager())
-      ->setOperation('pos')
-      ->setEntityManager($this->entityManager());
+      ->setOperation('pos');
 
     $form_state = (new FormState())->setFormState([]);
 

@@ -2,5 +2,5 @@ commerce_pos_label_etbd:
   title: Dymo 30334 - 1" x 2"
   css: 'css/labels/etbd.css'
   dimensions:
-    width: 1.75
+    width: 1.55
     height: 0.75
