@@ -1,0 +1,10 @@
+[19-Oct-2021 22:56:42 America/New_York] Error: Call to undefined method Drupal\Core\Logger\LoggerChannel::success() in /home/everythi/public_html/modules/contrib/colorbox/drush/colorbox.drush.inc on line 95 #0 phar:///usr/local/bin/drush/includes/command.inc(422): drush_colorbox_plugin()
+#1 phar:///usr/local/bin/drush/includes/command.inc(231): _drush_invoke_hooks(Array, Array)
+#2 phar:///usr/local/bin/drush/includes/command.inc(199): drush_command()
+#3 phar:///usr/local/bin/drush/lib/Drush/Boot/BaseBoot.php(67): drush_dispatch(Array)
+#4 phar:///usr/local/bin/drush/includes/preflight.inc(67): Drush\Boot\BaseBoot->bootstrap_and_dispatch()
+#5 phar:///usr/local/bin/drush/includes/startup.inc(465): drush_main()
+#6 phar:///usr/local/bin/drush/includes/startup.inc(369): drush_run_main(false, '/', 'Phar detected. ...')
+#7 phar:///usr/local/bin/drush/drush(114): drush_startup(Array)
+#8 /usr/local/bin/drush(10): require('phar:///usr/loc...')
+#9 {main}

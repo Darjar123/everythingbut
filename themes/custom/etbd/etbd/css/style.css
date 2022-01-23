@@ -12286,4 +12286,45 @@ body #block-adspace {
   padding: 30px 0 0 0;
   font-size: 1.5em;
 }
+
+#block-etbd-account-menu .nav.navbar-nav{
+    flex-direction: row;
+}
+
+.cart-block--summary__count{
+    color: #fff;
+}
+
+#block-cart{
+    padding-top:4px;
+    margin-right:10px;
+}
+
+.views-field-field-cat-background{
+    position:relative;
+}
+
+.cat-label{
+    position: absolute;
+    z-index: 10;
+    left: 15px;
+    top: 10px;
+}
+
+#block-views-block-category-block-block-1 ul{
+    list-style: none;
+}
+
+.commerce-product--view-mode-simple-product-search.ds-2col  {
+    border-bottom: 2px #e8e7e7 solid;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+}
+
+.commerce-product--view-mode-simple-product-search.ds-2col .group-left{
+    width:25%;
+}
+.commerce-product--view-mode-simple-product-search.ds-2col .group-right{
+    width:75%;
+}
 /*# sourceMappingURL=style.css.map */

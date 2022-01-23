@@ -18,6 +18,7 @@
         "composer/installers": "^1.2",
         "drupal/admin_toolbar": "^3.0",
         "drupal/better_exposed_filters": "^5.0",
+        "drupal/bootstrap_layouts": "^5.2",
         "drupal/colorbox": "^1.7",
         "drupal/colorbox_inline": "^1.2",
         "drupal/commerce": "^2.26",
@@ -31,6 +32,9 @@
         "drupal/devel": "^4.1",
         "drupal/ds": "^3.13",
         "drupal/page_popup": "^1.5",
+        "drupal/redirect": "^1.7",
+        "drupal/search_api_block": "^1.0",
+        "drupal/search_api_page": "^1.0@beta",
         "drupal/simple_popup_blocks": "^2.8"
     },
     "conflict": {

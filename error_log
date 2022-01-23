@@ -3594,3 +3594,471 @@
 [27-Nov-2021 23:28:04 America/Vancouver] Uncaught PHP Exception InvalidArgumentException: "Class "\Drupal\add_simple_products_music\Form\AddMusicForm" does not exist." at /home/everythi/public_html/core/lib/Drupal/Core/DependencyInjection/ClassResolver.php line 24
 [27-Nov-2021 23:29:16 America/Vancouver] PHP Fatal error:  Cannot declare class Drupal\add_simple_products_music\Form\AddMusicForm, because the name is already in use in /home/everythi/public_html/modules/custom/add_simple_products/src/Form/AddMusicForm.php on line 0
 [27-Nov-2021 23:29:40 America/Vancouver] Uncaught PHP Exception InvalidArgumentException: "Class "\Drupal\add_simple_products_music\Form\AddMusicForm" does not exist." at /home/everythi/public_html/core/lib/Drupal/Core/DependencyInjection/ClassResolver.php line 24
+[02-Dec-2021 17:12:29 America/Vancouver] Uncaught PHP Exception Drupal\Core\Entity\EntityStorageException: "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null: INSERT INTO {taxonomy_term_field_data} (tid, revision_id, vid, langcode, status, name, description__value, description__format, weight, changed, default_langcode, revision_translation_affected) VALUES (:db_insert_placeholder_0, :db_insert_placeholder_1, :db_insert_placeholder_2, :db_insert_placeholder_3, :db_insert_placeholder_4, :db_insert_placeholder_5, :db_insert_placeholder_6, :db_insert_placeholder_7, :db_insert_placeholder_8, :db_insert_placeholder_9, :db_insert_placeholder_10, :db_insert_placeholder_11); Array
+(
+    [:db_insert_placeholder_0] => 1522
+    [:db_insert_placeholder_1] => 1522
+    [:db_insert_placeholder_2] => category
+    [:db_insert_placeholder_3] => en
+    [:db_insert_placeholder_4] => 1
+    [:db_insert_placeholder_5] => 
+    [:db_insert_placeholder_6] => 
+    [:db_insert_placeholder_7] => 
+    [:db_insert_placeholder_8] => 0
+    [:db_insert_placeholder_9] => 1638493948
+    [:db_insert_placeholder_10] => 1
+    [:db_insert_placeholder_11] => 1
+)
+" at /home/everythi/public_html/core/lib/Drupal/Core/Entity/Sql/SqlContentEntityStorage.php line 846
+[04-Dec-2021 12:04:54 America/Vancouver] Error: Call to a member function id() on bool in /home/everythi/public_html/modules/custom/add_simple_products/src/Form/AddProductForm.php on line 258 #0 [internal function]: Drupal\add_simple_products\Form\AddProductForm->submitForm(Array, Object(Drupal\Core\Form\FormState))
+#1 /home/everythi/public_html/core/lib/Drupal/Core/Form/FormSubmitter.php(114): call_user_func_array(Array, Array)
+#2 /home/everythi/public_html/core/lib/Drupal/Core/Form/FormSubmitter.php(52): Drupal\Core\Form\FormSubmitter->executeSubmitHandlers(Array, Object(Drupal\Core\Form\FormState))
+#3 /home/everythi/public_html/core/lib/Drupal/Core/Form/FormBuilder.php(593): Drupal\Core\Form\FormSubmitter->doSubmitForm(Array, Object(Drupal\Core\Form\FormState))
+#4 /home/everythi/public_html/core/lib/Drupal/Core/Form/FormBuilder.php(321): Drupal\Core\Form\FormBuilder->processForm('add_simple_prod...', Array, Object(Drupal\Core\Form\FormState))
+#5 /home/everythi/public_html/core/lib/Drupal/Core/Controller/FormController.php(91): Drupal\Core\Form\FormBuilder->buildForm(Object(Drupal\add_simple_products\Form\AddProductForm), Object(Drupal\Core\Form\FormState))
+#6 [internal function]: Drupal\Core\Controller\FormController->getContentResult(Object(Symfony\Component\HttpFoundation\Request), Object(Drupal\Core\Routing\RouteMatch))
+#7 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(123): call_user_func_array(Array, Array)
+#8 /home/everythi/public_html/core/lib/Drupal/Core/Render/Renderer.php(573): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#9 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(124): Drupal\Core\Render\Renderer->executeInRenderContext(Object(Drupal\Core\Render\RenderContext), Object(Closure))
+#10 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(97): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->wrapControllerExecutionInRenderContext(Array, Array)
+#11 /home/everythi/public_html/vendor/symfony/http-kernel/HttpKernel.php(151): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#12 /home/everythi/public_html/vendor/symfony/http-kernel/HttpKernel.php(68): Symfony\Component\HttpKernel\HttpKernel->handleRaw(Object(Symfony\Component\HttpFoundation\Request), 1)
+#13 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/Session.php(57): Symfony\Component\HttpKernel\HttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#14 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/KernelPreHandle.php(47): Drupal\Core\StackMiddleware\Session->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#15 /home/everythi/public_html/core/modules/page_cache/src/StackMiddleware/PageCache.php(106): Drupal\Core\StackMiddleware\KernelPreHandle->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#16 /home/everythi/public_html/core/modules/page_cache/src/StackMiddleware/PageCache.php(85): Drupal\page_cache\StackMiddleware\PageCache->pass(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#17 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/ReverseProxyMiddleware.php(47): Drupal\page_cache\StackMiddleware\PageCache->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#18 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/NegotiationMiddleware.php(52): Drupal\Core\StackMiddleware\ReverseProxyMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#19 /home/everythi/public_html/vendor/stack/builder/src/Stack/StackedHttpKernel.php(23): Drupal\Core\StackMiddleware\NegotiationMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#20 /home/everythi/public_html/core/lib/Drupal/Core/DrupalKernel.php(708): Stack\StackedHttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#21 /home/everythi/public_html/index.php(19): Drupal\Core\DrupalKernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#22 {main}
+[04-Dec-2021 15:39:12 America/Vancouver] Uncaught PHP Exception Drupal\Core\Entity\EntityStorageException: "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null: INSERT INTO {taxonomy_term_field_data} (tid, revision_id, vid, langcode, status, name, description__value, description__format, weight, changed, default_langcode, revision_translation_affected) VALUES (:db_insert_placeholder_0, :db_insert_placeholder_1, :db_insert_placeholder_2, :db_insert_placeholder_3, :db_insert_placeholder_4, :db_insert_placeholder_5, :db_insert_placeholder_6, :db_insert_placeholder_7, :db_insert_placeholder_8, :db_insert_placeholder_9, :db_insert_placeholder_10, :db_insert_placeholder_11); Array
+(
+    [:db_insert_placeholder_0] => 2234
+    [:db_insert_placeholder_1] => 2234
+    [:db_insert_placeholder_2] => category
+    [:db_insert_placeholder_3] => en
+    [:db_insert_placeholder_4] => 1
+    [:db_insert_placeholder_5] => 
+    [:db_insert_placeholder_6] => 
+    [:db_insert_placeholder_7] => 
+    [:db_insert_placeholder_8] => 0
+    [:db_insert_placeholder_9] => 1638661151
+    [:db_insert_placeholder_10] => 1
+    [:db_insert_placeholder_11] => 1
+)
+" at /home/everythi/public_html/core/lib/Drupal/Core/Entity/Sql/SqlContentEntityStorage.php line 846
+[04-Dec-2021 15:39:43 America/Vancouver] Error: Call to a member function id() on bool in /home/everythi/public_html/modules/custom/add_simple_products/src/Form/AddProductForm.php on line 258 #0 [internal function]: Drupal\add_simple_products\Form\AddProductForm->submitForm(Array, Object(Drupal\Core\Form\FormState))
+#1 /home/everythi/public_html/core/lib/Drupal/Core/Form/FormSubmitter.php(114): call_user_func_array(Array, Array)
+#2 /home/everythi/public_html/core/lib/Drupal/Core/Form/FormSubmitter.php(52): Drupal\Core\Form\FormSubmitter->executeSubmitHandlers(Array, Object(Drupal\Core\Form\FormState))
+#3 /home/everythi/public_html/core/lib/Drupal/Core/Form/FormBuilder.php(593): Drupal\Core\Form\FormSubmitter->doSubmitForm(Array, Object(Drupal\Core\Form\FormState))
+#4 /home/everythi/public_html/core/lib/Drupal/Core/Form/FormBuilder.php(321): Drupal\Core\Form\FormBuilder->processForm('add_simple_prod...', Array, Object(Drupal\Core\Form\FormState))
+#5 /home/everythi/public_html/core/lib/Drupal/Core/Controller/FormController.php(91): Drupal\Core\Form\FormBuilder->buildForm(Object(Drupal\add_simple_products\Form\AddProductForm), Object(Drupal\Core\Form\FormState))
+#6 [internal function]: Drupal\Core\Controller\FormController->getContentResult(Object(Symfony\Component\HttpFoundation\Request), Object(Drupal\Core\Routing\RouteMatch))
+#7 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(123): call_user_func_array(Array, Array)
+#8 /home/everythi/public_html/core/lib/Drupal/Core/Render/Renderer.php(573): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#9 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(124): Drupal\Core\Render\Renderer->executeInRenderContext(Object(Drupal\Core\Render\RenderContext), Object(Closure))
+#10 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(97): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->wrapControllerExecutionInRenderContext(Array, Array)
+#11 /home/everythi/public_html/vendor/symfony/http-kernel/HttpKernel.php(151): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#12 /home/everythi/public_html/vendor/symfony/http-kernel/HttpKernel.php(68): Symfony\Component\HttpKernel\HttpKernel->handleRaw(Object(Symfony\Component\HttpFoundation\Request), 1)
+#13 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/Session.php(57): Symfony\Component\HttpKernel\HttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#14 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/KernelPreHandle.php(47): Drupal\Core\StackMiddleware\Session->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#15 /home/everythi/public_html/core/modules/page_cache/src/StackMiddleware/PageCache.php(106): Drupal\Core\StackMiddleware\KernelPreHandle->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#16 /home/everythi/public_html/core/modules/page_cache/src/StackMiddleware/PageCache.php(85): Drupal\page_cache\StackMiddleware\PageCache->pass(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#17 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/ReverseProxyMiddleware.php(47): Drupal\page_cache\StackMiddleware\PageCache->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#18 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/NegotiationMiddleware.php(52): Drupal\Core\StackMiddleware\ReverseProxyMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#19 /home/everythi/public_html/vendor/stack/builder/src/Stack/StackedHttpKernel.php(23): Drupal\Core\StackMiddleware\NegotiationMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#20 /home/everythi/public_html/core/lib/Drupal/Core/DrupalKernel.php(708): Stack\StackedHttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#21 /home/everythi/public_html/index.php(19): Drupal\Core\DrupalKernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#22 {main}
+[04-Dec-2021 16:13:01 America/Vancouver] Uncaught PHP Exception Drupal\Core\Entity\EntityStorageException: "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null: INSERT INTO {taxonomy_term_field_data} (tid, revision_id, vid, langcode, status, name, description__value, description__format, weight, changed, default_langcode, revision_translation_affected) VALUES (:db_insert_placeholder_0, :db_insert_placeholder_1, :db_insert_placeholder_2, :db_insert_placeholder_3, :db_insert_placeholder_4, :db_insert_placeholder_5, :db_insert_placeholder_6, :db_insert_placeholder_7, :db_insert_placeholder_8, :db_insert_placeholder_9, :db_insert_placeholder_10, :db_insert_placeholder_11); Array
+(
+    [:db_insert_placeholder_0] => 3080
+    [:db_insert_placeholder_1] => 3080
+    [:db_insert_placeholder_2] => category
+    [:db_insert_placeholder_3] => en
+    [:db_insert_placeholder_4] => 1
+    [:db_insert_placeholder_5] => 
+    [:db_insert_placeholder_6] => 
+    [:db_insert_placeholder_7] => 
+    [:db_insert_placeholder_8] => 0
+    [:db_insert_placeholder_9] => 1638663180
+    [:db_insert_placeholder_10] => 1
+    [:db_insert_placeholder_11] => 1
+)
+" at /home/everythi/public_html/core/lib/Drupal/Core/Entity/Sql/SqlContentEntityStorage.php line 846
+[04-Dec-2021 18:18:08 America/Vancouver] Uncaught PHP Exception Drupal\Core\Entity\EntityStorageException: "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null: INSERT INTO {taxonomy_term_field_data} (tid, revision_id, vid, langcode, status, name, description__value, description__format, weight, changed, default_langcode, revision_translation_affected) VALUES (:db_insert_placeholder_0, :db_insert_placeholder_1, :db_insert_placeholder_2, :db_insert_placeholder_3, :db_insert_placeholder_4, :db_insert_placeholder_5, :db_insert_placeholder_6, :db_insert_placeholder_7, :db_insert_placeholder_8, :db_insert_placeholder_9, :db_insert_placeholder_10, :db_insert_placeholder_11); Array
+(
+    [:db_insert_placeholder_0] => 3315
+    [:db_insert_placeholder_1] => 3315
+    [:db_insert_placeholder_2] => category
+    [:db_insert_placeholder_3] => en
+    [:db_insert_placeholder_4] => 1
+    [:db_insert_placeholder_5] => 
+    [:db_insert_placeholder_6] => 
+    [:db_insert_placeholder_7] => 
+    [:db_insert_placeholder_8] => 0
+    [:db_insert_placeholder_9] => 1638670686
+    [:db_insert_placeholder_10] => 1
+    [:db_insert_placeholder_11] => 1
+)
+" at /home/everythi/public_html/core/lib/Drupal/Core/Entity/Sql/SqlContentEntityStorage.php line 846
+[29-Dec-2021 10:48:10 America/Vancouver] Uncaught PHP Exception Drupal\Core\Entity\EntityStorageException: "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null: INSERT INTO {taxonomy_term_field_data} (tid, revision_id, vid, langcode, status, name, description__value, description__format, weight, changed, default_langcode, revision_translation_affected) VALUES (:db_insert_placeholder_0, :db_insert_placeholder_1, :db_insert_placeholder_2, :db_insert_placeholder_3, :db_insert_placeholder_4, :db_insert_placeholder_5, :db_insert_placeholder_6, :db_insert_placeholder_7, :db_insert_placeholder_8, :db_insert_placeholder_9, :db_insert_placeholder_10, :db_insert_placeholder_11); Array
+(
+    [:db_insert_placeholder_0] => 3855
+    [:db_insert_placeholder_1] => 3855
+    [:db_insert_placeholder_2] => category
+    [:db_insert_placeholder_3] => en
+    [:db_insert_placeholder_4] => 1
+    [:db_insert_placeholder_5] => 
+    [:db_insert_placeholder_6] => 
+    [:db_insert_placeholder_7] => 
+    [:db_insert_placeholder_8] => 0
+    [:db_insert_placeholder_9] => 1640803688
+    [:db_insert_placeholder_10] => 1
+    [:db_insert_placeholder_11] => 1
+)
+" at /home/everythi/public_html/core/lib/Drupal/Core/Entity/Sql/SqlContentEntityStorage.php line 846
+[29-Dec-2021 11:15:23 America/Vancouver] Uncaught PHP Exception Drupal\Core\Entity\EntityStorageException: "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null: INSERT INTO {taxonomy_term_field_data} (tid, revision_id, vid, langcode, status, name, description__value, description__format, weight, changed, default_langcode, revision_translation_affected) VALUES (:db_insert_placeholder_0, :db_insert_placeholder_1, :db_insert_placeholder_2, :db_insert_placeholder_3, :db_insert_placeholder_4, :db_insert_placeholder_5, :db_insert_placeholder_6, :db_insert_placeholder_7, :db_insert_placeholder_8, :db_insert_placeholder_9, :db_insert_placeholder_10, :db_insert_placeholder_11); Array
+(
+    [:db_insert_placeholder_0] => 3857
+    [:db_insert_placeholder_1] => 3857
+    [:db_insert_placeholder_2] => actors
+    [:db_insert_placeholder_3] => en
+    [:db_insert_placeholder_4] => 1
+    [:db_insert_placeholder_5] => 
+    [:db_insert_placeholder_6] => 
+    [:db_insert_placeholder_7] => 
+    [:db_insert_placeholder_8] => 0
+    [:db_insert_placeholder_9] => 1640805321
+    [:db_insert_placeholder_10] => 1
+    [:db_insert_placeholder_11] => 1
+)
+" at /home/everythi/public_html/core/lib/Drupal/Core/Entity/Sql/SqlContentEntityStorage.php line 846
+[29-Dec-2021 20:18:37 America/New_York] PDOException: SQLSTATE[08004] [1040] Too many connections in /home/everythi/public_html/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php on line 79 #0 /home/everythi/public_html/core/lib/Drupal/Core/Database/Driver/mysql/Connection.php(416): PDO->__construct('mysql:host=loca...', 'everythi_diamon...', 'Asante123#@!', Array)
+#1 /home/everythi/public_html/core/lib/Drupal/Core/Database/Database.php(374): Drupal\Core\Database\Driver\mysql\Connection::open(Array)
+#2 /home/everythi/public_html/core/lib/Drupal/Core/Database/Database.php(169): Drupal\Core\Database\Database::openConnection('default', 'default')
+#3 [internal function]: Drupal\Core\Database\Database::getConnection('default')
+#4 /home/everythi/public_html/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php(79): call_user_func_array('Drupal\\Core\\Dat...', Array)
+#5 /home/everythi/public_html/core/lib/Drupal/Component/DependencyInjection/Container.php(173): Drupal\Component\DependencyInjection\PhpArrayContainer->createService(Array, 'database')
+#6 /home/everythi/public_html/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php(212): Drupal\Component\DependencyInjection\Container->get('database', 1)
+#7 /home/everythi/public_html/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php(62): Drupal\Component\DependencyInjection\PhpArrayContainer->resolveServicesAndParameters(Array)
+#8 /home/everythi/public_html/core/lib/Drupal/Component/DependencyInjection/Container.php(173): Drupal\Component\DependencyInjection\PhpArrayContainer->createService(Array, 'cache.container')
+#9 /home/everythi/public_html/core/lib/Drupal/Core/DrupalKernel.php(544): Drupal\Component\DependencyInjection\Container->get('cache.container')
+#10 /home/everythi/public_html/core/lib/Drupal/Core/DrupalKernel.php(910): Drupal\Core\DrupalKernel->getCachedContainerDefinition()
+#11 /home/everythi/public_html/core/lib/Drupal/Core/DrupalKernel.php(477): Drupal\Core\DrupalKernel->initializeContainer()
+#12 /home/everythi/public_html/core/lib/Drupal/Core/DrupalKernel.php(707): Drupal\Core\DrupalKernel->boot()
+#13 /home/everythi/public_html/index.php(19): Drupal\Core\DrupalKernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#14 {main}
+[31-Dec-2021 21:34:53 America/Vancouver] Uncaught PHP Exception InvalidArgumentException: "Unknown attribute field name "attribute_media_type"." at /home/everythi/public_html/modules/contrib/commerce/modules/product/src/Entity/ProductVariation.php line 310
+[31-Dec-2021 23:07:06 America/Vancouver] Uncaught PHP Exception Drupal\Core\Entity\EntityStorageException: "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null: INSERT INTO {taxonomy_term_field_data} (tid, revision_id, vid, langcode, status, name, description__value, description__format, weight, changed, default_langcode, revision_translation_affected) VALUES (:db_insert_placeholder_0, :db_insert_placeholder_1, :db_insert_placeholder_2, :db_insert_placeholder_3, :db_insert_placeholder_4, :db_insert_placeholder_5, :db_insert_placeholder_6, :db_insert_placeholder_7, :db_insert_placeholder_8, :db_insert_placeholder_9, :db_insert_placeholder_10, :db_insert_placeholder_11); Array
+(
+    [:db_insert_placeholder_0] => 3859
+    [:db_insert_placeholder_1] => 3859
+    [:db_insert_placeholder_2] => actors
+    [:db_insert_placeholder_3] => en
+    [:db_insert_placeholder_4] => 1
+    [:db_insert_placeholder_5] => 
+    [:db_insert_placeholder_6] => 
+    [:db_insert_placeholder_7] => 
+    [:db_insert_placeholder_8] => 0
+    [:db_insert_placeholder_9] => 1641020816
+    [:db_insert_placeholder_10] => 1
+    [:db_insert_placeholder_11] => 1
+)
+" at /home/everythi/public_html/core/lib/Drupal/Core/Entity/Sql/SqlContentEntityStorage.php line 846
+[01-Jan-2022 10:52:48 America/Vancouver] Error: Call to undefined method Drupal\commerce_product\ProductVariationFieldRendererLayoutBuilder::getFieldDefinitions() in /home/everythi/public_html/modules/contrib/commerce/modules/product/src/Plugin/DsField/ProductVariationFieldDeriver.php on line 66 #0 /home/everythi/public_html/core/lib/Drupal/Component/Plugin/Discovery/DerivativeDiscoveryDecorator.php(101): Drupal\commerce_product\Plugin\DsField\ProductVariationFieldDeriver->getDerivativeDefinitions(Array)
+#1 /home/everythi/public_html/core/lib/Drupal/Component/Plugin/Discovery/DerivativeDiscoveryDecorator.php(87): Drupal\Component\Plugin\Discovery\DerivativeDiscoveryDecorator->getDerivatives(Array)
+#2 /home/everythi/public_html/core/lib/Drupal/Core/Plugin/DefaultPluginManager.php(284): Drupal\Component\Plugin\Discovery\DerivativeDiscoveryDecorator->getDefinitions()
+#3 /home/everythi/public_html/core/lib/Drupal/Core/Plugin/DefaultPluginManager.php(175): Drupal\Core\Plugin\DefaultPluginManager->findDefinitions()
+#4 /home/everythi/public_html/modules/contrib/ds/src/Ds.php(27): Drupal\Core\Plugin\DefaultPluginManager->getDefinitions()
+#5 /home/everythi/public_html/modules/contrib/ds/includes/field_ui.inc(1150): Drupal\ds\Ds::getFields('commerce_produc...')
+#6 /home/everythi/public_html/modules/contrib/ds/includes/field_ui.inc(55): _ds_field_ui_fields('commerce_produc...', 'music', 'default', Array, Object(Drupal\Core\Form\FormState))
+#7 /home/everythi/public_html/modules/contrib/ds/ds.module(241): ds_field_ui_fields_layouts(Array, Object(Drupal\Core\Form\FormState))
+#8 /home/everythi/public_html/core/lib/Drupal/Core/Extension/ModuleHandler.php(539): ds_form_entity_view_display_edit_form_alter(Array, Object(Drupal\Core\Form\FormState), 'entity_view_dis...')
+#9 /home/everythi/public_html/core/lib/Drupal/Core/Form/FormBuilder.php(836): Drupal\Core\Extension\ModuleHandler->alter('form', Array, Object(Drupal\Core\Form\FormState), 'entity_view_dis...')
+#10 /home/everythi/public_html/core/lib/Drupal/Core/Form/FormBuilder.php(279): Drupal\Core\Form\FormBuilder->prepareForm('entity_view_dis...', Array, Object(Drupal\Core\Form\FormState))
+#11 /home/everythi/public_html/core/lib/Drupal/Core/Controller/FormController.php(91): Drupal\Core\Form\FormBuilder->buildForm(Object(Drupal\layout_builder\Form\LayoutBuilderEntityViewDisplayForm), Object(Drupal\Core\Form\FormState))
+#12 /home/everythi/public_html/core/modules/layout_builder/src/Controller/LayoutBuilderHtmlEntityFormController.php(39): Drupal\Core\Controller\FormController->getContentResult(Object(Symfony\Component\HttpFoundation\Request), Object(Drupal\Core\Routing\RouteMatch))
+#13 [internal function]: Drupal\layout_builder\Controller\LayoutBuilderHtmlEntityFormController->getContentResult(Object(Symfony\Component\HttpFoundation\Request), Object(Drupal\Core\Routing\RouteMatch))
+#14 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(123): call_user_func_array(Array, Array)
+#15 /home/everythi/public_html/core/lib/Drupal/Core/Render/Renderer.php(573): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#16 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(124): Drupal\Core\Render\Renderer->executeInRenderContext(Object(Drupal\Core\Render\RenderContext), Object(Closure))
+#17 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(97): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->wrapControllerExecutionInRenderContext(Array, Array)
+#18 /home/everythi/public_html/vendor/symfony/http-kernel/HttpKernel.php(151): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#19 /home/everythi/public_html/vendor/symfony/http-kernel/HttpKernel.php(68): Symfony\Component\HttpKernel\HttpKernel->handleRaw(Object(Symfony\Component\HttpFoundation\Request), 1)
+#20 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/Session.php(57): Symfony\Component\HttpKernel\HttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#21 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/KernelPreHandle.php(47): Drupal\Core\StackMiddleware\Session->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#22 /home/everythi/public_html/core/modules/page_cache/src/StackMiddleware/PageCache.php(106): Drupal\Core\StackMiddleware\KernelPreHandle->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#23 /home/everythi/public_html/core/modules/page_cache/src/StackMiddleware/PageCache.php(85): Drupal\page_cache\StackMiddleware\PageCache->pass(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#24 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/ReverseProxyMiddleware.php(47): Drupal\page_cache\StackMiddleware\PageCache->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#25 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/NegotiationMiddleware.php(52): Drupal\Core\StackMiddleware\ReverseProxyMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#26 /home/everythi/public_html/vendor/stack/builder/src/Stack/StackedHttpKernel.php(23): Drupal\Core\StackMiddleware\NegotiationMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#27 /home/everythi/public_html/core/lib/Drupal/Core/DrupalKernel.php(708): Stack\StackedHttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#28 /home/everythi/public_html/index.php(19): Drupal\Core\DrupalKernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#29 {main}
+[01-Jan-2022 10:52:51 America/Vancouver] Error: Call to undefined method Drupal\commerce_product\ProductVariationFieldRendererLayoutBuilder::getFieldDefinitions() in /home/everythi/public_html/modules/contrib/commerce/modules/product/src/Plugin/DsField/ProductVariationFieldDeriver.php on line 66 #0 /home/everythi/public_html/core/lib/Drupal/Component/Plugin/Discovery/DerivativeDiscoveryDecorator.php(101): Drupal\commerce_product\Plugin\DsField\ProductVariationFieldDeriver->getDerivativeDefinitions(Array)
+#1 /home/everythi/public_html/core/lib/Drupal/Component/Plugin/Discovery/DerivativeDiscoveryDecorator.php(87): Drupal\Component\Plugin\Discovery\DerivativeDiscoveryDecorator->getDerivatives(Array)
+#2 /home/everythi/public_html/core/lib/Drupal/Core/Plugin/DefaultPluginManager.php(284): Drupal\Component\Plugin\Discovery\DerivativeDiscoveryDecorator->getDefinitions()
+#3 /home/everythi/public_html/core/lib/Drupal/Core/Plugin/DefaultPluginManager.php(175): Drupal\Core\Plugin\DefaultPluginManager->findDefinitions()
+#4 /home/everythi/public_html/modules/contrib/ds/src/Ds.php(27): Drupal\Core\Plugin\DefaultPluginManager->getDefinitions()
+#5 /home/everythi/public_html/modules/contrib/ds/includes/field_ui.inc(1150): Drupal\ds\Ds::getFields('commerce_produc...')
+#6 /home/everythi/public_html/modules/contrib/ds/includes/field_ui.inc(55): _ds_field_ui_fields('commerce_produc...', 'music', 'default', Array, Object(Drupal\Core\Form\FormState))
+#7 /home/everythi/public_html/modules/contrib/ds/ds.module(241): ds_field_ui_fields_layouts(Array, Object(Drupal\Core\Form\FormState))
+#8 /home/everythi/public_html/core/lib/Drupal/Core/Extension/ModuleHandler.php(539): ds_form_entity_view_display_edit_form_alter(Array, Object(Drupal\Core\Form\FormState), 'entity_view_dis...')
+#9 /home/everythi/public_html/core/lib/Drupal/Core/Form/FormBuilder.php(836): Drupal\Core\Extension\ModuleHandler->alter('form', Array, Object(Drupal\Core\Form\FormState), 'entity_view_dis...')
+#10 /home/everythi/public_html/core/lib/Drupal/Core/Form/FormBuilder.php(279): Drupal\Core\Form\FormBuilder->prepareForm('entity_view_dis...', Array, Object(Drupal\Core\Form\FormState))
+#11 /home/everythi/public_html/core/lib/Drupal/Core/Controller/FormController.php(91): Drupal\Core\Form\FormBuilder->buildForm(Object(Drupal\layout_builder\Form\LayoutBuilderEntityViewDisplayForm), Object(Drupal\Core\Form\FormState))
+#12 /home/everythi/public_html/core/modules/layout_builder/src/Controller/LayoutBuilderHtmlEntityFormController.php(39): Drupal\Core\Controller\FormController->getContentResult(Object(Symfony\Component\HttpFoundation\Request), Object(Drupal\Core\Routing\RouteMatch))
+#13 [internal function]: Drupal\layout_builder\Controller\LayoutBuilderHtmlEntityFormController->getContentResult(Object(Symfony\Component\HttpFoundation\Request), Object(Drupal\Core\Routing\RouteMatch))
+#14 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(123): call_user_func_array(Array, Array)
+#15 /home/everythi/public_html/core/lib/Drupal/Core/Render/Renderer.php(573): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#16 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(124): Drupal\Core\Render\Renderer->executeInRenderContext(Object(Drupal\Core\Render\RenderContext), Object(Closure))
+#17 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(97): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->wrapControllerExecutionInRenderContext(Array, Array)
+#18 /home/everythi/public_html/vendor/symfony/http-kernel/HttpKernel.php(151): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#19 /home/everythi/public_html/vendor/symfony/http-kernel/HttpKernel.php(68): Symfony\Component\HttpKernel\HttpKernel->handleRaw(Object(Symfony\Component\HttpFoundation\Request), 1)
+#20 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/Session.php(57): Symfony\Component\HttpKernel\HttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#21 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/KernelPreHandle.php(47): Drupal\Core\StackMiddleware\Session->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#22 /home/everythi/public_html/core/modules/page_cache/src/StackMiddleware/PageCache.php(106): Drupal\Core\StackMiddleware\KernelPreHandle->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#23 /home/everythi/public_html/core/modules/page_cache/src/StackMiddleware/PageCache.php(85): Drupal\page_cache\StackMiddleware\PageCache->pass(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#24 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/ReverseProxyMiddleware.php(47): Drupal\page_cache\StackMiddleware\PageCache->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#25 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/NegotiationMiddleware.php(52): Drupal\Core\StackMiddleware\ReverseProxyMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#26 /home/everythi/public_html/vendor/stack/builder/src/Stack/StackedHttpKernel.php(23): Drupal\Core\StackMiddleware\NegotiationMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#27 /home/everythi/public_html/core/lib/Drupal/Core/DrupalKernel.php(708): Stack\StackedHttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#28 /home/everythi/public_html/index.php(19): Drupal\Core\DrupalKernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#29 {main}
+[01-Jan-2022 10:52:54 America/Vancouver] Error: Call to undefined method Drupal\commerce_product\ProductVariationFieldRendererLayoutBuilder::getFieldDefinitions() in /home/everythi/public_html/modules/contrib/commerce/modules/product/src/Plugin/DsField/ProductVariationFieldDeriver.php on line 66 #0 /home/everythi/public_html/core/lib/Drupal/Component/Plugin/Discovery/DerivativeDiscoveryDecorator.php(101): Drupal\commerce_product\Plugin\DsField\ProductVariationFieldDeriver->getDerivativeDefinitions(Array)
+#1 /home/everythi/public_html/core/lib/Drupal/Component/Plugin/Discovery/DerivativeDiscoveryDecorator.php(87): Drupal\Component\Plugin\Discovery\DerivativeDiscoveryDecorator->getDerivatives(Array)
+#2 /home/everythi/public_html/core/lib/Drupal/Core/Plugin/DefaultPluginManager.php(284): Drupal\Component\Plugin\Discovery\DerivativeDiscoveryDecorator->getDefinitions()
+#3 /home/everythi/public_html/core/lib/Drupal/Core/Plugin/DefaultPluginManager.php(175): Drupal\Core\Plugin\DefaultPluginManager->findDefinitions()
+#4 /home/everythi/public_html/modules/contrib/ds/src/Ds.php(27): Drupal\Core\Plugin\DefaultPluginManager->getDefinitions()
+#5 /home/everythi/public_html/modules/contrib/ds/includes/field_ui.inc(1150): Drupal\ds\Ds::getFields('commerce_produc...')
+#6 /home/everythi/public_html/modules/contrib/ds/includes/field_ui.inc(55): _ds_field_ui_fields('commerce_produc...', 'music', 'default', Array, Object(Drupal\Core\Form\FormState))
+#7 /home/everythi/public_html/modules/contrib/ds/ds.module(241): ds_field_ui_fields_layouts(Array, Object(Drupal\Core\Form\FormState))
+#8 /home/everythi/public_html/core/lib/Drupal/Core/Extension/ModuleHandler.php(539): ds_form_entity_view_display_edit_form_alter(Array, Object(Drupal\Core\Form\FormState), 'entity_view_dis...')
+#9 /home/everythi/public_html/core/lib/Drupal/Core/Form/FormBuilder.php(836): Drupal\Core\Extension\ModuleHandler->alter('form', Array, Object(Drupal\Core\Form\FormState), 'entity_view_dis...')
+#10 /home/everythi/public_html/core/lib/Drupal/Core/Form/FormBuilder.php(279): Drupal\Core\Form\FormBuilder->prepareForm('entity_view_dis...', Array, Object(Drupal\Core\Form\FormState))
+#11 /home/everythi/public_html/core/lib/Drupal/Core/Controller/FormController.php(91): Drupal\Core\Form\FormBuilder->buildForm(Object(Drupal\layout_builder\Form\LayoutBuilderEntityViewDisplayForm), Object(Drupal\Core\Form\FormState))
+#12 /home/everythi/public_html/core/modules/layout_builder/src/Controller/LayoutBuilderHtmlEntityFormController.php(39): Drupal\Core\Controller\FormController->getContentResult(Object(Symfony\Component\HttpFoundation\Request), Object(Drupal\Core\Routing\RouteMatch))
+#13 [internal function]: Drupal\layout_builder\Controller\LayoutBuilderHtmlEntityFormController->getContentResult(Object(Symfony\Component\HttpFoundation\Request), Object(Drupal\Core\Routing\RouteMatch))
+#14 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(123): call_user_func_array(Array, Array)
+#15 /home/everythi/public_html/core/lib/Drupal/Core/Render/Renderer.php(573): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#16 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(124): Drupal\Core\Render\Renderer->executeInRenderContext(Object(Drupal\Core\Render\RenderContext), Object(Closure))
+#17 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(97): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->wrapControllerExecutionInRenderContext(Array, Array)
+#18 /home/everythi/public_html/vendor/symfony/http-kernel/HttpKernel.php(151): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#19 /home/everythi/public_html/vendor/symfony/http-kernel/HttpKernel.php(68): Symfony\Component\HttpKernel\HttpKernel->handleRaw(Object(Symfony\Component\HttpFoundation\Request), 1)
+#20 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/Session.php(57): Symfony\Component\HttpKernel\HttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#21 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/KernelPreHandle.php(47): Drupal\Core\StackMiddleware\Session->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#22 /home/everythi/public_html/core/modules/page_cache/src/StackMiddleware/PageCache.php(106): Drupal\Core\StackMiddleware\KernelPreHandle->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#23 /home/everythi/public_html/core/modules/page_cache/src/StackMiddleware/PageCache.php(85): Drupal\page_cache\StackMiddleware\PageCache->pass(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#24 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/ReverseProxyMiddleware.php(47): Drupal\page_cache\StackMiddleware\PageCache->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#25 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/NegotiationMiddleware.php(52): Drupal\Core\StackMiddleware\ReverseProxyMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#26 /home/everythi/public_html/vendor/stack/builder/src/Stack/StackedHttpKernel.php(23): Drupal\Core\StackMiddleware\NegotiationMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#27 /home/everythi/public_html/core/lib/Drupal/Core/DrupalKernel.php(708): Stack\StackedHttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#28 /home/everythi/public_html/index.php(19): Drupal\Core\DrupalKernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#29 {main}
+[01-Jan-2022 10:54:41 America/Vancouver] Error: Call to undefined method Drupal\commerce_product\ProductVariationFieldRendererLayoutBuilder::getFieldDefinitions() in /home/everythi/public_html/modules/contrib/commerce/modules/product/src/Plugin/DsField/ProductVariationFieldDeriver.php on line 66 #0 /home/everythi/public_html/core/lib/Drupal/Component/Plugin/Discovery/DerivativeDiscoveryDecorator.php(101): Drupal\commerce_product\Plugin\DsField\ProductVariationFieldDeriver->getDerivativeDefinitions(Array)
+#1 /home/everythi/public_html/core/lib/Drupal/Component/Plugin/Discovery/DerivativeDiscoveryDecorator.php(87): Drupal\Component\Plugin\Discovery\DerivativeDiscoveryDecorator->getDerivatives(Array)
+#2 /home/everythi/public_html/core/lib/Drupal/Core/Plugin/DefaultPluginManager.php(284): Drupal\Component\Plugin\Discovery\DerivativeDiscoveryDecorator->getDefinitions()
+#3 /home/everythi/public_html/core/lib/Drupal/Core/Plugin/DefaultPluginManager.php(175): Drupal\Core\Plugin\DefaultPluginManager->findDefinitions()
+#4 /home/everythi/public_html/modules/contrib/ds/src/Ds.php(27): Drupal\Core\Plugin\DefaultPluginManager->getDefinitions()
+#5 /home/everythi/public_html/modules/contrib/ds/includes/field_ui.inc(1150): Drupal\ds\Ds::getFields('commerce_produc...')
+#6 /home/everythi/public_html/modules/contrib/ds/includes/field_ui.inc(55): _ds_field_ui_fields('commerce_produc...', 'music', 'default', Array, Object(Drupal\Core\Form\FormState))
+#7 /home/everythi/public_html/modules/contrib/ds/ds.module(241): ds_field_ui_fields_layouts(Array, Object(Drupal\Core\Form\FormState))
+#8 /home/everythi/public_html/core/lib/Drupal/Core/Extension/ModuleHandler.php(539): ds_form_entity_view_display_edit_form_alter(Array, Object(Drupal\Core\Form\FormState), 'entity_view_dis...')
+#9 /home/everythi/public_html/core/lib/Drupal/Core/Form/FormBuilder.php(836): Drupal\Core\Extension\ModuleHandler->alter('form', Array, Object(Drupal\Core\Form\FormState), 'entity_view_dis...')
+#10 /home/everythi/public_html/core/lib/Drupal/Core/Form/FormBuilder.php(279): Drupal\Core\Form\FormBuilder->prepareForm('entity_view_dis...', Array, Object(Drupal\Core\Form\FormState))
+#11 /home/everythi/public_html/core/lib/Drupal/Core/Controller/FormController.php(91): Drupal\Core\Form\FormBuilder->buildForm(Object(Drupal\layout_builder\Form\LayoutBuilderEntityViewDisplayForm), Object(Drupal\Core\Form\FormState))
+#12 /home/everythi/public_html/core/modules/layout_builder/src/Controller/LayoutBuilderHtmlEntityFormController.php(39): Drupal\Core\Controller\FormController->getContentResult(Object(Symfony\Component\HttpFoundation\Request), Object(Drupal\Core\Routing\RouteMatch))
+#13 [internal function]: Drupal\layout_builder\Controller\LayoutBuilderHtmlEntityFormController->getContentResult(Object(Symfony\Component\HttpFoundation\Request), Object(Drupal\Core\Routing\RouteMatch))
+#14 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(123): call_user_func_array(Array, Array)
+#15 /home/everythi/public_html/core/lib/Drupal/Core/Render/Renderer.php(573): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#16 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(124): Drupal\Core\Render\Renderer->executeInRenderContext(Object(Drupal\Core\Render\RenderContext), Object(Closure))
+#17 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(97): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->wrapControllerExecutionInRenderContext(Array, Array)
+#18 /home/everythi/public_html/vendor/symfony/http-kernel/HttpKernel.php(151): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#19 /home/everythi/public_html/vendor/symfony/http-kernel/HttpKernel.php(68): Symfony\Component\HttpKernel\HttpKernel->handleRaw(Object(Symfony\Component\HttpFoundation\Request), 1)
+#20 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/Session.php(57): Symfony\Component\HttpKernel\HttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#21 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/KernelPreHandle.php(47): Drupal\Core\StackMiddleware\Session->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#22 /home/everythi/public_html/core/modules/page_cache/src/StackMiddleware/PageCache.php(106): Drupal\Core\StackMiddleware\KernelPreHandle->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#23 /home/everythi/public_html/core/modules/page_cache/src/StackMiddleware/PageCache.php(85): Drupal\page_cache\StackMiddleware\PageCache->pass(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#24 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/ReverseProxyMiddleware.php(47): Drupal\page_cache\StackMiddleware\PageCache->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#25 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/NegotiationMiddleware.php(52): Drupal\Core\StackMiddleware\ReverseProxyMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#26 /home/everythi/public_html/vendor/stack/builder/src/Stack/StackedHttpKernel.php(23): Drupal\Core\StackMiddleware\NegotiationMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#27 /home/everythi/public_html/core/lib/Drupal/Core/DrupalKernel.php(708): Stack\StackedHttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#28 /home/everythi/public_html/index.php(19): Drupal\Core\DrupalKernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#29 {main}
+[01-Jan-2022 10:54:54 America/Vancouver] Error: Call to undefined method Drupal\commerce_product\ProductVariationFieldRendererLayoutBuilder::getFieldDefinitions() in /home/everythi/public_html/modules/contrib/commerce/modules/product/src/Plugin/DsField/ProductVariationFieldDeriver.php on line 66 #0 /home/everythi/public_html/core/lib/Drupal/Component/Plugin/Discovery/DerivativeDiscoveryDecorator.php(101): Drupal\commerce_product\Plugin\DsField\ProductVariationFieldDeriver->getDerivativeDefinitions(Array)
+#1 /home/everythi/public_html/core/lib/Drupal/Component/Plugin/Discovery/DerivativeDiscoveryDecorator.php(87): Drupal\Component\Plugin\Discovery\DerivativeDiscoveryDecorator->getDerivatives(Array)
+#2 /home/everythi/public_html/core/lib/Drupal/Core/Plugin/DefaultPluginManager.php(284): Drupal\Component\Plugin\Discovery\DerivativeDiscoveryDecorator->getDefinitions()
+#3 /home/everythi/public_html/core/lib/Drupal/Core/Plugin/DefaultPluginManager.php(175): Drupal\Core\Plugin\DefaultPluginManager->findDefinitions()
+#4 /home/everythi/public_html/modules/contrib/ds/src/Ds.php(27): Drupal\Core\Plugin\DefaultPluginManager->getDefinitions()
+#5 /home/everythi/public_html/modules/contrib/ds/includes/field_ui.inc(1150): Drupal\ds\Ds::getFields('commerce_produc...')
+#6 /home/everythi/public_html/modules/contrib/ds/includes/field_ui.inc(55): _ds_field_ui_fields('commerce_produc...', 'music', 'default', Array, Object(Drupal\Core\Form\FormState))
+#7 /home/everythi/public_html/modules/contrib/ds/ds.module(241): ds_field_ui_fields_layouts(Array, Object(Drupal\Core\Form\FormState))
+#8 /home/everythi/public_html/core/lib/Drupal/Core/Extension/ModuleHandler.php(539): ds_form_entity_view_display_edit_form_alter(Array, Object(Drupal\Core\Form\FormState), 'entity_view_dis...')
+#9 /home/everythi/public_html/core/lib/Drupal/Core/Form/FormBuilder.php(836): Drupal\Core\Extension\ModuleHandler->alter('form', Array, Object(Drupal\Core\Form\FormState), 'entity_view_dis...')
+#10 /home/everythi/public_html/core/lib/Drupal/Core/Form/FormBuilder.php(279): Drupal\Core\Form\FormBuilder->prepareForm('entity_view_dis...', Array, Object(Drupal\Core\Form\FormState))
+#11 /home/everythi/public_html/core/lib/Drupal/Core/Controller/FormController.php(91): Drupal\Core\Form\FormBuilder->buildForm(Object(Drupal\layout_builder\Form\LayoutBuilderEntityViewDisplayForm), Object(Drupal\Core\Form\FormState))
+#12 /home/everythi/public_html/core/modules/layout_builder/src/Controller/LayoutBuilderHtmlEntityFormController.php(39): Drupal\Core\Controller\FormController->getContentResult(Object(Symfony\Component\HttpFoundation\Request), Object(Drupal\Core\Routing\RouteMatch))
+#13 [internal function]: Drupal\layout_builder\Controller\LayoutBuilderHtmlEntityFormController->getContentResult(Object(Symfony\Component\HttpFoundation\Request), Object(Drupal\Core\Routing\RouteMatch))
+#14 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(123): call_user_func_array(Array, Array)
+#15 /home/everythi/public_html/core/lib/Drupal/Core/Render/Renderer.php(573): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#16 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(124): Drupal\Core\Render\Renderer->executeInRenderContext(Object(Drupal\Core\Render\RenderContext), Object(Closure))
+#17 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(97): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->wrapControllerExecutionInRenderContext(Array, Array)
+#18 /home/everythi/public_html/vendor/symfony/http-kernel/HttpKernel.php(151): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#19 /home/everythi/public_html/vendor/symfony/http-kernel/HttpKernel.php(68): Symfony\Component\HttpKernel\HttpKernel->handleRaw(Object(Symfony\Component\HttpFoundation\Request), 1)
+#20 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/Session.php(57): Symfony\Component\HttpKernel\HttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#21 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/KernelPreHandle.php(47): Drupal\Core\StackMiddleware\Session->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#22 /home/everythi/public_html/core/modules/page_cache/src/StackMiddleware/PageCache.php(106): Drupal\Core\StackMiddleware\KernelPreHandle->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#23 /home/everythi/public_html/core/modules/page_cache/src/StackMiddleware/PageCache.php(85): Drupal\page_cache\StackMiddleware\PageCache->pass(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#24 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/ReverseProxyMiddleware.php(47): Drupal\page_cache\StackMiddleware\PageCache->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#25 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/NegotiationMiddleware.php(52): Drupal\Core\StackMiddleware\ReverseProxyMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#26 /home/everythi/public_html/vendor/stack/builder/src/Stack/StackedHttpKernel.php(23): Drupal\Core\StackMiddleware\NegotiationMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#27 /home/everythi/public_html/core/lib/Drupal/Core/DrupalKernel.php(708): Stack\StackedHttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#28 /home/everythi/public_html/index.php(19): Drupal\Core\DrupalKernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#29 {main}
+[01-Jan-2022 10:55:07 America/Vancouver] Error: Call to undefined method Drupal\commerce_product\ProductVariationFieldRendererLayoutBuilder::getFieldDefinitions() in /home/everythi/public_html/modules/contrib/commerce/modules/product/src/Plugin/DsField/ProductVariationFieldDeriver.php on line 66 #0 /home/everythi/public_html/core/lib/Drupal/Component/Plugin/Discovery/DerivativeDiscoveryDecorator.php(101): Drupal\commerce_product\Plugin\DsField\ProductVariationFieldDeriver->getDerivativeDefinitions(Array)
+#1 /home/everythi/public_html/core/lib/Drupal/Component/Plugin/Discovery/DerivativeDiscoveryDecorator.php(87): Drupal\Component\Plugin\Discovery\DerivativeDiscoveryDecorator->getDerivatives(Array)
+#2 /home/everythi/public_html/core/lib/Drupal/Core/Plugin/DefaultPluginManager.php(284): Drupal\Component\Plugin\Discovery\DerivativeDiscoveryDecorator->getDefinitions()
+#3 /home/everythi/public_html/core/lib/Drupal/Core/Plugin/DefaultPluginManager.php(175): Drupal\Core\Plugin\DefaultPluginManager->findDefinitions()
+#4 /home/everythi/public_html/modules/contrib/ds/src/Ds.php(27): Drupal\Core\Plugin\DefaultPluginManager->getDefinitions()
+#5 /home/everythi/public_html/modules/contrib/ds/includes/field_ui.inc(1150): Drupal\ds\Ds::getFields('commerce_produc...')
+#6 /home/everythi/public_html/modules/contrib/ds/includes/field_ui.inc(55): _ds_field_ui_fields('commerce_produc...', 'music', 'default', Array, Object(Drupal\Core\Form\FormState))
+#7 /home/everythi/public_html/modules/contrib/ds/ds.module(241): ds_field_ui_fields_layouts(Array, Object(Drupal\Core\Form\FormState))
+#8 /home/everythi/public_html/core/lib/Drupal/Core/Extension/ModuleHandler.php(539): ds_form_entity_view_display_edit_form_alter(Array, Object(Drupal\Core\Form\FormState), 'entity_view_dis...')
+#9 /home/everythi/public_html/core/lib/Drupal/Core/Form/FormBuilder.php(836): Drupal\Core\Extension\ModuleHandler->alter('form', Array, Object(Drupal\Core\Form\FormState), 'entity_view_dis...')
+#10 /home/everythi/public_html/core/lib/Drupal/Core/Form/FormBuilder.php(279): Drupal\Core\Form\FormBuilder->prepareForm('entity_view_dis...', Array, Object(Drupal\Core\Form\FormState))
+#11 /home/everythi/public_html/core/lib/Drupal/Core/Controller/FormController.php(91): Drupal\Core\Form\FormBuilder->buildForm(Object(Drupal\layout_builder\Form\LayoutBuilderEntityViewDisplayForm), Object(Drupal\Core\Form\FormState))
+#12 /home/everythi/public_html/core/modules/layout_builder/src/Controller/LayoutBuilderHtmlEntityFormController.php(39): Drupal\Core\Controller\FormController->getContentResult(Object(Symfony\Component\HttpFoundation\Request), Object(Drupal\Core\Routing\RouteMatch))
+#13 [internal function]: Drupal\layout_builder\Controller\LayoutBuilderHtmlEntityFormController->getContentResult(Object(Symfony\Component\HttpFoundation\Request), Object(Drupal\Core\Routing\RouteMatch))
+#14 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(123): call_user_func_array(Array, Array)
+#15 /home/everythi/public_html/core/lib/Drupal/Core/Render/Renderer.php(573): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#16 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(124): Drupal\Core\Render\Renderer->executeInRenderContext(Object(Drupal\Core\Render\RenderContext), Object(Closure))
+#17 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(97): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->wrapControllerExecutionInRenderContext(Array, Array)
+#18 /home/everythi/public_html/vendor/symfony/http-kernel/HttpKernel.php(151): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#19 /home/everythi/public_html/vendor/symfony/http-kernel/HttpKernel.php(68): Symfony\Component\HttpKernel\HttpKernel->handleRaw(Object(Symfony\Component\HttpFoundation\Request), 1)
+#20 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/Session.php(57): Symfony\Component\HttpKernel\HttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#21 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/KernelPreHandle.php(47): Drupal\Core\StackMiddleware\Session->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#22 /home/everythi/public_html/core/modules/page_cache/src/StackMiddleware/PageCache.php(106): Drupal\Core\StackMiddleware\KernelPreHandle->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#23 /home/everythi/public_html/core/modules/page_cache/src/StackMiddleware/PageCache.php(85): Drupal\page_cache\StackMiddleware\PageCache->pass(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#24 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/ReverseProxyMiddleware.php(47): Drupal\page_cache\StackMiddleware\PageCache->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#25 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/NegotiationMiddleware.php(52): Drupal\Core\StackMiddleware\ReverseProxyMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#26 /home/everythi/public_html/vendor/stack/builder/src/Stack/StackedHttpKernel.php(23): Drupal\Core\StackMiddleware\NegotiationMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#27 /home/everythi/public_html/core/lib/Drupal/Core/DrupalKernel.php(708): Stack\StackedHttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#28 /home/everythi/public_html/index.php(19): Drupal\Core\DrupalKernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#29 {main}
+[01-Jan-2022 10:59:06 America/Vancouver] Error: Call to undefined method Drupal\commerce_product\ProductVariationFieldRendererLayoutBuilder::getFieldDefinitions() in /home/everythi/public_html/modules/contrib/commerce/modules/product/src/Plugin/DsField/ProductVariationFieldDeriver.php on line 66 #0 /home/everythi/public_html/core/lib/Drupal/Component/Plugin/Discovery/DerivativeDiscoveryDecorator.php(101): Drupal\commerce_product\Plugin\DsField\ProductVariationFieldDeriver->getDerivativeDefinitions(Array)
+#1 /home/everythi/public_html/core/lib/Drupal/Component/Plugin/Discovery/DerivativeDiscoveryDecorator.php(87): Drupal\Component\Plugin\Discovery\DerivativeDiscoveryDecorator->getDerivatives(Array)
+#2 /home/everythi/public_html/core/lib/Drupal/Core/Plugin/DefaultPluginManager.php(284): Drupal\Component\Plugin\Discovery\DerivativeDiscoveryDecorator->getDefinitions()
+#3 /home/everythi/public_html/core/lib/Drupal/Core/Plugin/DefaultPluginManager.php(175): Drupal\Core\Plugin\DefaultPluginManager->findDefinitions()
+#4 /home/everythi/public_html/modules/contrib/ds/src/Ds.php(27): Drupal\Core\Plugin\DefaultPluginManager->getDefinitions()
+#5 /home/everythi/public_html/modules/contrib/ds/includes/field_ui.inc(1150): Drupal\ds\Ds::getFields('commerce_produc...')
+#6 /home/everythi/public_html/modules/contrib/ds/includes/field_ui.inc(55): _ds_field_ui_fields('commerce_produc...', 'music', 'default', Array, Object(Drupal\Core\Form\FormState))
+#7 /home/everythi/public_html/modules/contrib/ds/ds.module(241): ds_field_ui_fields_layouts(Array, Object(Drupal\Core\Form\FormState))
+#8 /home/everythi/public_html/core/lib/Drupal/Core/Extension/ModuleHandler.php(539): ds_form_entity_view_display_edit_form_alter(Array, Object(Drupal\Core\Form\FormState), 'entity_view_dis...')
+#9 /home/everythi/public_html/core/lib/Drupal/Core/Form/FormBuilder.php(836): Drupal\Core\Extension\ModuleHandler->alter('form', Array, Object(Drupal\Core\Form\FormState), 'entity_view_dis...')
+#10 /home/everythi/public_html/core/lib/Drupal/Core/Form/FormBuilder.php(279): Drupal\Core\Form\FormBuilder->prepareForm('entity_view_dis...', Array, Object(Drupal\Core\Form\FormState))
+#11 /home/everythi/public_html/core/lib/Drupal/Core/Controller/FormController.php(91): Drupal\Core\Form\FormBuilder->buildForm(Object(Drupal\layout_builder\Form\LayoutBuilderEntityViewDisplayForm), Object(Drupal\Core\Form\FormState))
+#12 /home/everythi/public_html/core/modules/layout_builder/src/Controller/LayoutBuilderHtmlEntityFormController.php(39): Drupal\Core\Controller\FormController->getContentResult(Object(Symfony\Component\HttpFoundation\Request), Object(Drupal\Core\Routing\RouteMatch))
+#13 [internal function]: Drupal\layout_builder\Controller\LayoutBuilderHtmlEntityFormController->getContentResult(Object(Symfony\Component\HttpFoundation\Request), Object(Drupal\Core\Routing\RouteMatch))
+#14 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(123): call_user_func_array(Array, Array)
+#15 /home/everythi/public_html/core/lib/Drupal/Core/Render/Renderer.php(573): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#16 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(124): Drupal\Core\Render\Renderer->executeInRenderContext(Object(Drupal\Core\Render\RenderContext), Object(Closure))
+#17 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(97): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->wrapControllerExecutionInRenderContext(Array, Array)
+#18 /home/everythi/public_html/vendor/symfony/http-kernel/HttpKernel.php(151): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#19 /home/everythi/public_html/vendor/symfony/http-kernel/HttpKernel.php(68): Symfony\Component\HttpKernel\HttpKernel->handleRaw(Object(Symfony\Component\HttpFoundation\Request), 1)
+#20 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/Session.php(57): Symfony\Component\HttpKernel\HttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#21 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/KernelPreHandle.php(47): Drupal\Core\StackMiddleware\Session->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#22 /home/everythi/public_html/core/modules/page_cache/src/StackMiddleware/PageCache.php(106): Drupal\Core\StackMiddleware\KernelPreHandle->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#23 /home/everythi/public_html/core/modules/page_cache/src/StackMiddleware/PageCache.php(85): Drupal\page_cache\StackMiddleware\PageCache->pass(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#24 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/ReverseProxyMiddleware.php(47): Drupal\page_cache\StackMiddleware\PageCache->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#25 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/NegotiationMiddleware.php(52): Drupal\Core\StackMiddleware\ReverseProxyMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#26 /home/everythi/public_html/vendor/stack/builder/src/Stack/StackedHttpKernel.php(23): Drupal\Core\StackMiddleware\NegotiationMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#27 /home/everythi/public_html/core/lib/Drupal/Core/DrupalKernel.php(708): Stack\StackedHttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#28 /home/everythi/public_html/index.php(19): Drupal\Core\DrupalKernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#29 {main}
+[01-Jan-2022 10:59:33 America/Vancouver] Error: Call to undefined method Drupal\commerce_product\ProductVariationFieldRendererLayoutBuilder::getFieldDefinitions() in /home/everythi/public_html/modules/contrib/commerce/modules/product/src/Plugin/DsField/ProductVariationFieldDeriver.php on line 66 #0 /home/everythi/public_html/core/lib/Drupal/Component/Plugin/Discovery/DerivativeDiscoveryDecorator.php(101): Drupal\commerce_product\Plugin\DsField\ProductVariationFieldDeriver->getDerivativeDefinitions(Array)
+#1 /home/everythi/public_html/core/lib/Drupal/Component/Plugin/Discovery/DerivativeDiscoveryDecorator.php(87): Drupal\Component\Plugin\Discovery\DerivativeDiscoveryDecorator->getDerivatives(Array)
+#2 /home/everythi/public_html/core/lib/Drupal/Core/Plugin/DefaultPluginManager.php(284): Drupal\Component\Plugin\Discovery\DerivativeDiscoveryDecorator->getDefinitions()
+#3 /home/everythi/public_html/core/lib/Drupal/Core/Plugin/DefaultPluginManager.php(175): Drupal\Core\Plugin\DefaultPluginManager->findDefinitions()
+#4 /home/everythi/public_html/modules/contrib/ds/src/Ds.php(27): Drupal\Core\Plugin\DefaultPluginManager->getDefinitions()
+#5 /home/everythi/public_html/modules/contrib/ds/includes/field_ui.inc(1150): Drupal\ds\Ds::getFields('commerce_produc...')
+#6 /home/everythi/public_html/modules/contrib/ds/includes/field_ui.inc(55): _ds_field_ui_fields('commerce_produc...', 'music', 'default', Array, Object(Drupal\Core\Form\FormState))
+#7 /home/everythi/public_html/modules/contrib/ds/ds.module(241): ds_field_ui_fields_layouts(Array, Object(Drupal\Core\Form\FormState))
+#8 /home/everythi/public_html/core/lib/Drupal/Core/Extension/ModuleHandler.php(539): ds_form_entity_view_display_edit_form_alter(Array, Object(Drupal\Core\Form\FormState), 'entity_view_dis...')
+#9 /home/everythi/public_html/core/lib/Drupal/Core/Form/FormBuilder.php(836): Drupal\Core\Extension\ModuleHandler->alter('form', Array, Object(Drupal\Core\Form\FormState), 'entity_view_dis...')
+#10 /home/everythi/public_html/core/lib/Drupal/Core/Form/FormBuilder.php(279): Drupal\Core\Form\FormBuilder->prepareForm('entity_view_dis...', Array, Object(Drupal\Core\Form\FormState))
+#11 /home/everythi/public_html/core/lib/Drupal/Core/Controller/FormController.php(91): Drupal\Core\Form\FormBuilder->buildForm(Object(Drupal\layout_builder\Form\LayoutBuilderEntityViewDisplayForm), Object(Drupal\Core\Form\FormState))
+#12 /home/everythi/public_html/core/modules/layout_builder/src/Controller/LayoutBuilderHtmlEntityFormController.php(39): Drupal\Core\Controller\FormController->getContentResult(Object(Symfony\Component\HttpFoundation\Request), Object(Drupal\Core\Routing\RouteMatch))
+#13 [internal function]: Drupal\layout_builder\Controller\LayoutBuilderHtmlEntityFormController->getContentResult(Object(Symfony\Component\HttpFoundation\Request), Object(Drupal\Core\Routing\RouteMatch))
+#14 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(123): call_user_func_array(Array, Array)
+#15 /home/everythi/public_html/core/lib/Drupal/Core/Render/Renderer.php(573): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#16 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(124): Drupal\Core\Render\Renderer->executeInRenderContext(Object(Drupal\Core\Render\RenderContext), Object(Closure))
+#17 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(97): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->wrapControllerExecutionInRenderContext(Array, Array)
+#18 /home/everythi/public_html/vendor/symfony/http-kernel/HttpKernel.php(151): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#19 /home/everythi/public_html/vendor/symfony/http-kernel/HttpKernel.php(68): Symfony\Component\HttpKernel\HttpKernel->handleRaw(Object(Symfony\Component\HttpFoundation\Request), 1)
+#20 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/Session.php(57): Symfony\Component\HttpKernel\HttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#21 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/KernelPreHandle.php(47): Drupal\Core\StackMiddleware\Session->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#22 /home/everythi/public_html/core/modules/page_cache/src/StackMiddleware/PageCache.php(106): Drupal\Core\StackMiddleware\KernelPreHandle->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#23 /home/everythi/public_html/core/modules/page_cache/src/StackMiddleware/PageCache.php(85): Drupal\page_cache\StackMiddleware\PageCache->pass(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#24 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/ReverseProxyMiddleware.php(47): Drupal\page_cache\StackMiddleware\PageCache->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#25 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/NegotiationMiddleware.php(52): Drupal\Core\StackMiddleware\ReverseProxyMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#26 /home/everythi/public_html/vendor/stack/builder/src/Stack/StackedHttpKernel.php(23): Drupal\Core\StackMiddleware\NegotiationMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#27 /home/everythi/public_html/core/lib/Drupal/Core/DrupalKernel.php(708): Stack\StackedHttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#28 /home/everythi/public_html/index.php(19): Drupal\Core\DrupalKernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#29 {main}
+[01-Jan-2022 11:05:51 America/Vancouver] Error: Call to undefined method Drupal\commerce_product\ProductVariationFieldRendererLayoutBuilder::getFieldDefinitions() in /home/everythi/public_html/modules/contrib/commerce/modules/product/src/Plugin/DsField/ProductVariationFieldDeriver.php on line 66 #0 /home/everythi/public_html/core/lib/Drupal/Component/Plugin/Discovery/DerivativeDiscoveryDecorator.php(101): Drupal\commerce_product\Plugin\DsField\ProductVariationFieldDeriver->getDerivativeDefinitions(Array)
+#1 /home/everythi/public_html/core/lib/Drupal/Component/Plugin/Discovery/DerivativeDiscoveryDecorator.php(87): Drupal\Component\Plugin\Discovery\DerivativeDiscoveryDecorator->getDerivatives(Array)
+#2 /home/everythi/public_html/core/lib/Drupal/Core/Plugin/DefaultPluginManager.php(284): Drupal\Component\Plugin\Discovery\DerivativeDiscoveryDecorator->getDefinitions()
+#3 /home/everythi/public_html/core/lib/Drupal/Core/Plugin/DefaultPluginManager.php(175): Drupal\Core\Plugin\DefaultPluginManager->findDefinitions()
+#4 /home/everythi/public_html/modules/contrib/ds/src/Ds.php(27): Drupal\Core\Plugin\DefaultPluginManager->getDefinitions()
+#5 /home/everythi/public_html/modules/contrib/ds/includes/field_ui.inc(1150): Drupal\ds\Ds::getFields('commerce_produc...')
+#6 /home/everythi/public_html/modules/contrib/ds/includes/field_ui.inc(55): _ds_field_ui_fields('commerce_produc...', 'music', 'default', Array, Object(Drupal\Core\Form\FormState))
+#7 /home/everythi/public_html/modules/contrib/ds/ds.module(241): ds_field_ui_fields_layouts(Array, Object(Drupal\Core\Form\FormState))
+#8 /home/everythi/public_html/core/lib/Drupal/Core/Extension/ModuleHandler.php(539): ds_form_entity_view_display_edit_form_alter(Array, Object(Drupal\Core\Form\FormState), 'entity_view_dis...')
+#9 /home/everythi/public_html/core/lib/Drupal/Core/Form/FormBuilder.php(836): Drupal\Core\Extension\ModuleHandler->alter('form', Array, Object(Drupal\Core\Form\FormState), 'entity_view_dis...')
+#10 /home/everythi/public_html/core/lib/Drupal/Core/Form/FormBuilder.php(279): Drupal\Core\Form\FormBuilder->prepareForm('entity_view_dis...', Array, Object(Drupal\Core\Form\FormState))
+#11 /home/everythi/public_html/core/lib/Drupal/Core/Controller/FormController.php(91): Drupal\Core\Form\FormBuilder->buildForm(Object(Drupal\layout_builder\Form\LayoutBuilderEntityViewDisplayForm), Object(Drupal\Core\Form\FormState))
+#12 /home/everythi/public_html/core/modules/layout_builder/src/Controller/LayoutBuilderHtmlEntityFormController.php(39): Drupal\Core\Controller\FormController->getContentResult(Object(Symfony\Component\HttpFoundation\Request), Object(Drupal\Core\Routing\RouteMatch))
+#13 [internal function]: Drupal\layout_builder\Controller\LayoutBuilderHtmlEntityFormController->getContentResult(Object(Symfony\Component\HttpFoundation\Request), Object(Drupal\Core\Routing\RouteMatch))
+#14 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(123): call_user_func_array(Array, Array)
+#15 /home/everythi/public_html/core/lib/Drupal/Core/Render/Renderer.php(573): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#16 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(124): Drupal\Core\Render\Renderer->executeInRenderContext(Object(Drupal\Core\Render\RenderContext), Object(Closure))
+#17 /home/everythi/public_html/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(97): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->wrapControllerExecutionInRenderContext(Array, Array)
+#18 /home/everythi/public_html/vendor/symfony/http-kernel/HttpKernel.php(151): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#19 /home/everythi/public_html/vendor/symfony/http-kernel/HttpKernel.php(68): Symfony\Component\HttpKernel\HttpKernel->handleRaw(Object(Symfony\Component\HttpFoundation\Request), 1)
+#20 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/Session.php(57): Symfony\Component\HttpKernel\HttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#21 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/KernelPreHandle.php(47): Drupal\Core\StackMiddleware\Session->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#22 /home/everythi/public_html/core/modules/page_cache/src/StackMiddleware/PageCache.php(106): Drupal\Core\StackMiddleware\KernelPreHandle->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#23 /home/everythi/public_html/core/modules/page_cache/src/StackMiddleware/PageCache.php(85): Drupal\page_cache\StackMiddleware\PageCache->pass(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#24 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/ReverseProxyMiddleware.php(47): Drupal\page_cache\StackMiddleware\PageCache->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#25 /home/everythi/public_html/core/lib/Drupal/Core/StackMiddleware/NegotiationMiddleware.php(52): Drupal\Core\StackMiddleware\ReverseProxyMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#26 /home/everythi/public_html/vendor/stack/builder/src/Stack/StackedHttpKernel.php(23): Drupal\Core\StackMiddleware\NegotiationMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#27 /home/everythi/public_html/core/lib/Drupal/Core/DrupalKernel.php(708): Stack\StackedHttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#28 /home/everythi/public_html/index.php(19): Drupal\Core\DrupalKernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#29 {main}
+[01-Jan-2022 12:35:00 America/Vancouver] Uncaught PHP Exception InvalidArgumentException: "Unknown attribute field name "attribute_media_type"." at /home/everythi/public_html/modules/contrib/commerce/modules/product/src/Entity/ProductVariation.php line 310
+[01-Jan-2022 12:35:51 America/Vancouver] Uncaught PHP Exception InvalidArgumentException: "Unknown attribute field name "attribute_media_type"." at /home/everythi/public_html/modules/contrib/commerce/modules/product/src/Entity/ProductVariation.php line 310
+[01-Jan-2022 12:36:02 America/Vancouver] Uncaught PHP Exception InvalidArgumentException: "Unknown attribute field name "attribute_media_type"." at /home/everythi/public_html/modules/contrib/commerce/modules/product/src/Entity/ProductVariation.php line 310
+[01-Jan-2022 13:10:39 America/Vancouver] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "getUrlByImageStyle" function." at /home/everythi/public_html/themes/custom/etbd/etbd/commerce-product.html.twig line 34
+[01-Jan-2022 13:10:45 America/Vancouver] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "getUrlByImageStyle" function." at /home/everythi/public_html/themes/custom/etbd/etbd/commerce-product.html.twig line 34
+[15-Jan-2022 02:09:45 America/Vancouver] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "var_dump" function." at /home/everythi/public_html/themes/custom/etbd/etbd/field--commerce-product--movies.html.twig line 55
+[15-Jan-2022 02:18:26 America/Vancouver] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_dump" function." at /home/everythi/public_html/themes/custom/etbd/etbd/field--commerce-product--movies.html.twig line 75
+[15-Jan-2022 02:19:05 America/Vancouver] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_dump" function." at /home/everythi/public_html/themes/custom/etbd/etbd/field--commerce-product--movies.html.twig line 55
+[15-Jan-2022 02:19:08 America/Vancouver] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_dump" function." at /home/everythi/public_html/themes/custom/etbd/etbd/field--commerce-product--movies.html.twig line 55
+[15-Jan-2022 02:19:34 America/Vancouver] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_dump" function." at /home/everythi/public_html/themes/custom/etbd/etbd/field--commerce-product--movies.html.twig line 55
+[15-Jan-2022 02:19:54 America/Vancouver] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_dump" function." at /home/everythi/public_html/themes/custom/etbd/etbd/field--commerce-product--movies.html.twig line 55
+[15-Jan-2022 02:20:46 America/Vancouver] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected character "$"." at /home/everythi/public_html/themes/custom/etbd/etbd/field--commerce-product--movies.html.twig line 55
+[15-Jan-2022 02:23:39 America/Vancouver] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_dump" function." at /home/everythi/public_html/themes/custom/etbd/etbd/field--commerce-product--movies.html.twig line 55
+[15-Jan-2022 02:23:41 America/Vancouver] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_dump" function." at /home/everythi/public_html/themes/custom/etbd/etbd/field--commerce-product--movies.html.twig line 55
+[15-Jan-2022 13:09:30 America/Vancouver] Uncaught PHP Exception Exception: "Object of type Drupal\commerce_product\Entity\Product cannot be printed." at /home/everythi/public_html/core/lib/Drupal/Core/Template/TwigExtension.php line 476
+[15-Jan-2022 13:10:08 America/Vancouver] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "dd" function." at /home/everythi/public_html/themes/custom/etbd/etbd/commerce-product.html.twig line 54
+[15-Jan-2022 13:10:12 America/Vancouver] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "dd" function." at /home/everythi/public_html/themes/custom/etbd/etbd/commerce-product.html.twig line 54
+[15-Jan-2022 13:10:53 America/Vancouver] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "dd" function." at /home/everythi/public_html/themes/custom/etbd/etbd/commerce-product.html.twig line 54
+[16-Jan-2022 13:28:06 America/Vancouver] Uncaught PHP Exception Twig\Error\LoaderError: "Template "themes/custom/etbd/etbd/field--commerce-product--movies.html.twig" is not defined." at /home/everythi/public_html/themes/custom/etbd/etbd/commerce-product.html.twig line 30
+[16-Jan-2022 13:33:15 America/Vancouver] Uncaught PHP Exception Twig\Error\SyntaxError: "Unclosed "("." at /home/everythi/public_html/themes/custom/etbd/etbd/field--commerce-product--field-actors.html.twig line 75
+[16-Jan-2022 19:39:05 America/Vancouver] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "dunp" function. Did you mean "dump"?" at /home/everythi/public_html/themes/custom/etbd/etbd/commerce-product.html.twig line 22
+[16-Jan-2022 19:40:47 America/Vancouver] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "var_dump" function." at /home/everythi/public_html/themes/custom/etbd/etbd/commerce-product.html.twig line 22
+[16-Jan-2022 19:41:26 America/Vancouver] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "var_dump" function." at /home/everythi/public_html/themes/custom/etbd/etbd/commerce-product.html.twig line 22
+[23-Jan-2022 03:07:19 America/Vancouver] Uncaught PHP Exception Drupal\Core\Database\InvalidQueryException: "Query condition 'users_field_data.mail IN ()' cannot be empty." at /home/everythi/public_html/core/lib/Drupal/Core/Database/Query/Condition.php line 105

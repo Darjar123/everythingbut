@@ -5,6 +5,7 @@ form:
       css/commerce_pos_barcode_scanning.css: {}
   js:
     js/add_simple_products_barcode_scanning.js: {}
+    js/add_simple_products_music.js: {}
   dependencies:
     - core/jquery
     - core/drupal

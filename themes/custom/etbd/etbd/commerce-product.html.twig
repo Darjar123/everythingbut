@@ -1,0 +1,68 @@
+{#
+/**
+ * @file
+ *
+ * Default product template.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the wrapper.
+ * - product: The rendered product fields.
+ *   Use 'product' to print them all, or print a subset such as
+ *   'product.title'. Use the following code to exclude the
+ *   printing of a given field:
+ *   @code
+ *   {{ product|without('title') }}
+ *   @endcode
+ * - product_entity: The product entity.
+ * - product_url: The product URL.
+ *
+ * @ingroup themeable
+ */
+#}
+	
+<div class="row">
+	<div class="col-md-6 col-sm-6 col-12">
+		<!-- Product Images & Alternates -->
+		<div class="product-images">
+			<!-- Begin Product Images Slider -->
+			<div class="main-img-slider">
+							
+                {{ product.field_product_images }}
+			</div>
+			<!-- End Product Images Slider -->	
+		</div>												
+	</div>
+	<div class="col-md-6 col-sm-6 col-12">
+		<div class="single-product">
+			<h2>{{ product.title }}</h2>
+			<!-- Price Start -->
+			<div class="single-product-price">
+				<h4>{{ product.variation_price }}</h4>
+			</div>
+			<!-- Price End -->
+
+			<p>{{ product.field_short_description|render|striptags }}</p>
+			
+			<!-- Quantity Form and Button Start -->
+			<div class="quantity mt-30">
+				{{ product.variations ? product.variations }}
+			</div>
+			<!-- Quantity Form and Button End -->
+
+			<div class="product-categories">
+				<div class="display-b blog-grid-2-button">
+					{{ product.field_category }}
+				</div>
+			</div>	
+			<div class="product-categories">
+				<div class="display-b blog-grid-2-button">
+					{{ product.field_actors }}
+				</div>
+			</div>	
+					
+
+		</div>
+	</div>				
+</div>
+
+

@@ -64,7 +64,7 @@
             if (response.length !== 0) {
                 
                 $('#sugesstion-overlay').remove();
-                $("#add-simple-products").append("<div id='sugesstion-overlay' style='position:fixed;top:130px' ><h2>select your movie</h2> <div id='suggestion'></div></div>");
+                $("#add-simple-products").append("<div id='sugesstion-overlay' style='position:fixed;top:130px; overflow: auto;height: 100%;' ><h2>select your movie</h2> <div id='suggestion'></div></div>");
                                 
                 $.each(response['movie_results'], function(index, value) {
                  console.log(value['imdb_id']);
