@@ -91,9 +91,18 @@ class StockTransactions2 extends FormBase {
       return $this->redirect('commerce_stock_ui.stock_transactions1');
     }
 
-    $product_variation = $this->productVariationStorage->load($variation_id);
-    $stockService = $this->stockServiceManager->getService($product_variation);
-    $locations = $stockService->getStockChecker()->getLocationList(TRUE);
+    if (!$product_variation = $this->productVariationStorage->load($variation_id)) {
+      // Message
+      $this->messenger()->addError($this->t('Product not found. Please select a valid product variation'));
+      return $this->redirect('commerce_stock_ui.stock_transactions1');
+    }
+
+
+
+    /** @var \Drupal\commerce_stock_local\StockLocationStorage $locationStorage */
+    $locationStorage = \Drupal::entityTypeManager()->getStorage('commerce_stock_location');
+    $locations = $locationStorage->loadEnabled($product_variation);
+
     $location_options = [];
     /** @var \Drupal\commerce_stock\StockLocationInterface $location */
     foreach ($locations as $location) {

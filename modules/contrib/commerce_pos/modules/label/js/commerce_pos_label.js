@@ -16,5 +16,5 @@
       stylesheet: response.cssUrl
     });
   };
-  
+
 }(jQuery, Drupal, drupalSettings));

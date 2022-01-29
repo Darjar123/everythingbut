@@ -7,7 +7,7 @@ core: 8.x
 core_version_requirement: ^8 || ^9
 type: module
 
-# Information added by Drupal.org packaging script on 2021-06-28
-version: '8.x-1.0-alpha6'
+# Information added by Drupal.org packaging script on 2022-01-14
+version: '8.x-1.0'
 project: 'commerce_stock'
-datestamp: 1624900198
+datestamp: 1642166792
